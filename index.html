@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VIEW Conference 2025 - All Sessions Filter</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <img
+            src="/img/view-logo.png"
+            alt="VIEW Conference Logo"
+            class="logo"
+          />
+          <div class="header-text">
+            <h1>VIEW Conference 2025</h1>
+            <p>
+              25th International Computer Graphics Conference | All Sessions
+              Browser
+            </p>
+            <p>October 12-17, 2025 | Turin, Italy</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="filter-section">
+        <h2>Filter</h2>
+        <div class="filters">
+          <div class="filter-group">
+            <label for="day-filter">Day:</label>
+            <select id="day-filter">
+              <option value="">All Days</option>
+              <option value="2025-10-12">Sunday, Oct 12</option>
+              <option value="2025-10-13">Monday, Oct 13</option>
+              <option value="2025-10-14">Tuesday, Oct 14</option>
+              <option value="2025-10-15">Wednesday, Oct 15</option>
+              <option value="2025-10-16">Thursday, Oct 16</option>
+              <option value="2025-10-17">Friday, Oct 17</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="category-filter">Category:</label>
+            <select id="category-filter">
+              <option value="">All Categories</option>
+              <option value="vfx">Visual Effects</option>
+              <option value="animation">Animation</option>
+              <option value="rendering">Rendering</option>
+              <option value="ai">Artificial Intelligence</option>
+              <option value="technology">Technology & Tools</option>
+              <option value="production">Production</option>
+              <option value="game">Games</option>
+              <option value="art">Art & Design</option>
+              <option value="career">Career Development</option>
+              <option value="education">Education</option>
+              <option value="storytelling">Storytelling</option>
+              <option value="business">Business & Industry</option>
+              <option value="cinematography">Cinematography</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="session-type-filter">Session Type:</label>
+            <select id="type-filter">
+              <option value="">All Types</option>
+              <option value="talk">Talks</option>
+              <option value="workshop">Workshops</option>
+              <option value="masterclass">Masterclasses</option>
+              <option value="panel">Panels</option>
+              <option value="ama">Ask Me Anything</option>
+              <option value="keynote">Keynotes</option>
+              <option value="clinic">Clinics</option>
+              <option value="portfolio">Portfolio Reviews</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="search-input">Search:</label>
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search by title, speaker, or technology..."
+            />
+          </div>
+
+          <button id="clear-filters" class="clear-btn">
+            Clear All Filters
+          </button>
+        </div>
+      </section>
+
+      <section class="results-section">
+        <div class="results-header">
+          <h2>Conference Sessions</h2>
+          <span class="results-count" id="results-count">Loading...</span>
+        </div>
+        <div id="sessions-container" class="sessions-grid">
+          <!-- Sessions will be loaded here by JavaScript -->
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>
+          Data source:
+          <a
+            href="https://www.viewconference.it/assets/html/view_CET.html"
+            target="_blank"
+            >VIEW Conference 2025 Official Schedule</a
+          >
+        </p>
+        <p>Complete conference session browser and filter</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
