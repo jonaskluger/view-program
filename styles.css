@@ -175,14 +175,15 @@ main {
     border-radius: var(--radius);
     padding: 1.5rem;
     background: var(--card-background);
-    transition: box-shadow 0.3s ease, transform 0.2s ease;
+    transition: box-shadow 0.3s ease, transform 0.2s ease, z-index 0s 0.3s;
     position: relative;
-    overflow: hidden;
 }
 
 .session-card:hover {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     transform: translateY(-2px);
+    z-index: 10;
+    transition: box-shadow 0.3s ease, transform 0.2s ease, z-index 0s 0s;
 }
 
 .session-header {
@@ -292,6 +293,57 @@ main {
     color: #555;
     line-height: 1.5;
     margin-bottom: 1rem;
+}
+
+.session-actions {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.calendar-btn {
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.calendar-btn:hover {
+    background: #2980b9;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 
 .session-tags {

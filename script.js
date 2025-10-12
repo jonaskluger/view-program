@@ -1891,6 +1891,16 @@ class ConferenceSessionsFilter {
                 </div>
 
                 ${tagsHtml}
+
+                <div class="session-actions">
+                    <div class="dropdown">
+                        <button class="calendar-btn">Add to Calendar</button>
+                        <div class="dropdown-content">
+                            <a href="#" onclick="event.preventDefault(); addSessionToIcal(${session.id})">iCal</a>
+                            <a href="#" onclick="event.preventDefault(); addSessionToGoogleCalendar(${session.id})">Google</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         `;
   }
@@ -1944,8 +1954,57 @@ document.addEventListener("DOMContentLoaded", () => {
   new ConferenceSessionsFilter();
 });
 
+function addSessionToIcal(sessionId) {
+  const session = sessionsData.find((s) => s.id === sessionId);
+  if (!session) {
+    console.error("Session not found for ID:", sessionId);
+    alert("Error: Session details not found.");
+    return;
+  }
+
+  try {
+    const [startTime, endTime] = session.time.split("-");
+    const startDate = new Date(`${session.date}T${startTime}:00`);
+    const endDate = new Date(`${session.date}T${endTime}:00`);
+
+    // Helper to format date for iCal
+    const toIcalDate = (date) => {
+      return date.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
+    };
+
+    const icalContent = [
+      "BEGIN:VCALENDAR",
+      "VERSION:2.0",
+      "PRODID:-//YourAppName//NONSGML v1.0//EN",
+      "BEGIN:VEVENT",
+      `UID:${session.id}@viewconference.it`,
+      `DTSTAMP:${toIcalDate(new Date())}`,
+      `DTSTART:${toIcalDate(startDate)}`,
+      `DTEND:${toIcalDate(endDate)}`,
+      `SUMMARY:${session.title}`,
+      `DESCRIPTION:${session.description.replace(/\n/g, "\\n")}`,
+      `LOCATION:${session.location}`,
+      "END:VEVENT",
+      "END:VCALENDAR",
+    ].join("\r\n");
+
+    const blob = new Blob([icalContent], { type: "text/calendar;charset=utf-8" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    const filename = `${session.title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}.ics`;
+    link.setAttribute("download", filename);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+  } catch (e) {
+    console.error("Failed to generate iCal file:", e);
+    alert("An unexpected error occurred while creating the iCal file.");
+  }
+}
+
 // Add some utility functions for enhanced interactivity
-function addSessionToCalendar(sessionId) {
+function addSessionToGoogleCalendar(sessionId) {
   const session = sessionsData.find((s) => s.id === sessionId);
   if (!session) return;
 
