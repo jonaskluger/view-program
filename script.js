@@ -1875,14 +1875,12 @@ class ConferenceSessionsFilter {
       // Add day divider when the date changes
       if (session.date !== currentDate) {
         currentDate = session.date;
-        const formattedDate = this.formatDate(session.date);
         const dayName = this.getDayName(session.date);
 
         html += `
           <div class="day-divider">
             <h2 class="day-header">
               <span class="day-name">${dayName}</span>
-              <span class="day-date">${formattedDate}</span>
             </h2>
           </div>
         `;
