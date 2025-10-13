@@ -1773,6 +1773,8 @@ class ConferenceSessionsFilter {
     this.clearFiltersBtn = document.getElementById("clear-filters");
     this.sessionsContainer = document.getElementById("sessions-container");
     this.resultsCount = document.getElementById("results-count");
+    this.allSessionsTab = document.getElementById("all-sessions-tab");
+    this.savedSessionsTab = document.getElementById("saved-sessions-tab");
   }
 
   attachEventListeners() {
@@ -1785,6 +1787,10 @@ class ConferenceSessionsFilter {
     this.clearFiltersBtn.addEventListener("click", () =>
       this.clearAllFilters()
     );
+    
+    // Add event listeners for the new tabs
+    this.allSessionsTab.addEventListener("click", () => this.showAllSessions());
+    this.savedSessionsTab.addEventListener("click", () => this.showSavedSessions());
   }
 
   debounce(func, wait) {
@@ -1944,6 +1950,9 @@ class ConferenceSessionsFilter {
 
     const sessionActionsHtml = !sessionStatus.isPast
       ? `<div class="session-actions">
+                    <button class="save-btn ${this.isSessionSaved(session.id) ? 'saved' : ''}" onclick="toggleSaveSession(${session.id})">
+                        ${this.isSessionSaved(session.id) ? '★ Saved' : '☆ Save to Schedule'}
+                    </button>
                     <div class="dropdown">
                         <button class="calendar-btn">Add to Calendar</button>
                         <div class="dropdown-content">
@@ -2118,11 +2127,85 @@ class ConferenceSessionsFilter {
     const total = this.allSessions.length;
     this.resultsCount.textContent = `${count} of ${total} sessions`;
   }
+  
+  // Get saved sessions from localStorage
+  getSavedSessions() {
+    const saved = localStorage.getItem('savedSessions');
+    return saved ? JSON.parse(saved) : [];
+  }
+  
+  // Save sessions to localStorage
+  saveSession(sessionId) {
+    let savedSessions = this.getSavedSessions();
+    if (!savedSessions.includes(sessionId)) {
+      savedSessions.push(sessionId);
+      localStorage.setItem('savedSessions', JSON.stringify(savedSessions));
+      this.updateTabIndicators();
+      return true;
+    }
+    return false;
+  }
+  
+  // Remove session from saved
+  removeSavedSession(sessionId) {
+    let savedSessions = this.getSavedSessions();
+    savedSessions = savedSessions.filter(id => id !== sessionId);
+    localStorage.setItem('savedSessions', JSON.stringify(savedSessions));
+    this.updateTabIndicators();
+    return true;
+  }
+  
+  // Check if a session is saved
+  isSessionSaved(sessionId) {
+    const savedSessions = this.getSavedSessions();
+    return savedSessions.includes(sessionId);
+  }
+  
+  // Show all sessions
+  showAllSessions() {
+    this.allSessionsTab.classList.add('active');
+    this.savedSessionsTab.classList.remove('active');
+    this.applyFilters(); // Re-apply current filters to show all sessions
+  }
+  
+ // Show only saved sessions
+  showSavedSessions() {
+    this.allSessionsTab.classList.remove('active');
+    this.savedSessionsTab.classList.add('active');
+    
+    // Get saved session IDs
+    const savedSessionIds = this.getSavedSessions();
+    
+    // Filter sessions to show only saved ones
+    this.filteredSessions = this.allSessions.filter(session =>
+      savedSessionIds.includes(session.id)
+    );
+    
+    // Sort the saved sessions by date and time
+    this.sortSessionsByDateTime();
+    
+    this.renderSessions();
+    this.updateResultsCount();
+  }
+  
+ // Update tab indicators (show count of saved sessions)
+  updateTabIndicators() {
+    const savedCount = this.getSavedSessions().length;
+    if (savedCount > 0) {
+      this.savedSessionsTab.innerHTML = `Saved Sessions <span class="saved-count">${savedCount}</span>`;
+    } else {
+      this.savedSessionsTab.textContent = 'Saved Sessions';
+    }
+ }
 }
 
 // Initialize the application when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
-  new ConferenceSessionsFilter();
+  const app = new ConferenceSessionsFilter();
+  // Store the app instance globally so it can be accessed by other functions
+  window.conferenceApp = app;
+  // Update tab indicators after initialization
+  app.updateTabIndicators();
 });
 
 function addSessionToIcal(sessionId) {
@@ -2204,7 +2287,7 @@ function addSessionToGoogleCalendar(sessionId) {
 }
 
 function shareSession(sessionId) {
-  const session = sessionsData.find((s) => s.id === sessionId);
+ const session = sessionsData.find((s) => s.id === sessionId);
   if (!session) return;
 
   if (navigator.share) {
@@ -2219,5 +2302,36 @@ function shareSession(sessionId) {
     navigator.clipboard.writeText(shareText).then(() => {
       alert("Session details copied to clipboard!");
     });
+  }
+}
+
+// Function to toggle save status of a session
+function toggleSaveSession(sessionId) {
+  const app = window.conferenceApp;
+  if (!app) {
+    console.error('Conference app instance not found');
+    return;
+  }
+  
+  const saveBtn = event.target.classList.contains('save-btn') ?
+    event.target : event.target.closest('.save-btn');
+  
+  if (!saveBtn) return;
+  
+  if (app.isSessionSaved(sessionId)) {
+    // Remove from saved
+    app.removeSavedSession(sessionId);
+    saveBtn.textContent = '☆ Save to Schedule';
+    saveBtn.classList.remove('saved');
+    
+    // If we're currently viewing saved sessions, update the view
+    if (document.getElementById('saved-sessions-tab').classList.contains('active')) {
+      app.showSavedSessions();
+    }
+  } else {
+    // Add to saved
+    app.saveSession(sessionId);
+    saveBtn.textContent = '★ Saved';
+    saveBtn.classList.add('saved');
   }
 }
