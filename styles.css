@@ -195,12 +195,19 @@ main {
     gap: 0.5rem;
 }
 
+.session-title-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex: 1;
+    flex-wrap: wrap;
+}
+
 .session-title {
     font-size: 1.2rem;
     font-weight: 600;
     color: var(--primary-color);
     margin: 0;
-    flex: 1;
 }
 
 .session-type {
@@ -240,6 +247,71 @@ main {
 
 .session-type.portfolio {
     background: #9b59b6;
+}
+
+/* Session badges container */
+.session-badges {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Status badges */
+.status-badge {
+    padding: 0.3rem 0.8rem;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.status-badge.ongoing {
+    background: #27ae60;
+    color: white;
+}
+
+.status-badge.ongoing::before {
+    content: "🟢";
+    font-size: 0.7rem;
+}
+
+.status-badge.starting-soon {
+    background: #f39c12;
+    color: white;
+}
+
+.status-badge.starting-soon::before {
+    content: "🟠";
+    font-size: 0.7rem;
+}
+
+.status-badge.done {
+    background: #95a5a6;
+    color: white;
+}
+
+.status-badge.done::before {
+    content: "✅";
+    font-size: 0.7rem;
+}
+
+/* Past session styling */
+.session-card.session-past {
+    opacity: 0.6;
+    filter: grayscale(30%);
+}
+
+.session-card.session-past .session-title {
+    color: #7f8c8d;
+}
+
+.session-card.session-past .session-type {
+    opacity: 0.7;
 }
 
 .session-info {

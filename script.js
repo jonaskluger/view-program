@@ -1753,6 +1753,14 @@ class ConferenceSessionsFilter {
     this.attachEventListeners();
     this.renderSessions();
     this.updateResultsCount();
+
+    // Update session statuses every 30 seconds
+    setInterval(() => {
+      this.renderSessions();
+    }, 30000);
+
+    // Log current time for debugging
+    console.log("Current time in Italy:", this.getCurrentTimeInItaly());
   }
 
   initializeElements() {
@@ -1835,8 +1843,28 @@ class ConferenceSessionsFilter {
 
   createSessionCard(session) {
     const formattedDate = this.formatDate(session.date);
+    const sessionStatus = this.getSessionStatus(session);
+    const statusBadge = this.createStatusBadge(sessionStatus);
+
+    // Debug logging for today's sessions
+    const today = new Date().toISOString().split("T")[0];
+    if (
+      session.date === today ||
+      sessionStatus.isOngoing ||
+      sessionStatus.startingSoon
+    ) {
+      console.log(
+        `Session ${session.id} (${session.title}):`,
+        sessionStatus.debug
+      );
+      console.log(
+        `Status: isPast=${sessionStatus.isPast}, isOngoing=${sessionStatus.isOngoing}, startingSoon=${sessionStatus.startingSoon}`
+      );
+    }
+
+    // Show less information for completed sessions
     const speakersHtml =
-      session.speakers.length > 0
+      !sessionStatus.isPast && session.speakers.length > 0
         ? `<div class="session-speakers">
                 <h4>Speakers</h4>
                 <div class="speakers-list">
@@ -1851,7 +1879,7 @@ class ConferenceSessionsFilter {
         : "";
 
     const tagsHtml =
-      session.tags.length > 0
+      !sessionStatus.isPast && session.tags.length > 0
         ? `<div class="session-tags">
                 ${session.tags
                   .map((tag) => {
@@ -1862,11 +1890,32 @@ class ConferenceSessionsFilter {
             </div>`
         : "";
 
+    const sessionActionsHtml = !sessionStatus.isPast
+      ? `<div class="session-actions">
+                    <div class="dropdown">
+                        <button class="calendar-btn">Add to Calendar</button>
+                        <div class="dropdown-content">
+                            <a href="#" onclick="event.preventDefault(); addSessionToIcal(${session.id})">iCal</a>
+                            <a href="#" onclick="event.preventDefault(); addSessionToGoogleCalendar(${session.id})">Google</a>
+                        </div>
+                    </div>
+                </div>`
+      : "";
+
     return `
-            <div class="session-card" data-session-id="${session.id}">
+            <div class="session-card ${
+              sessionStatus.isPast ? "session-past" : ""
+            }" data-session-id="${session.id}">
                 <div class="session-header">
-                    <h3 class="session-title">${session.title}</h3>
-                    <span class="session-type ${session.type}">${session.type}</span>
+                    <div class="session-title-container">
+                        ${statusBadge}
+                        <h3 class="session-title">${session.title}</h3>
+                    </div>
+                    <div class="session-badges">
+                        <span class="session-type ${session.type}">${
+      session.type
+    }</span>
+                    </div>
                 </div>
                 
                 <div class="session-info">
@@ -1886,23 +1935,87 @@ class ConferenceSessionsFilter {
 
                 ${speakersHtml}
 
-                <div class="session-description">
+                ${
+                  !sessionStatus.isPast
+                    ? `<div class="session-description">
                     ${session.description}
-                </div>
+                </div>`
+                    : ""
+                }
 
                 ${tagsHtml}
 
-                <div class="session-actions">
-                    <div class="dropdown">
-                        <button class="calendar-btn">Add to Calendar</button>
-                        <div class="dropdown-content">
-                            <a href="#" onclick="event.preventDefault(); addSessionToIcal(${session.id})">iCal</a>
-                            <a href="#" onclick="event.preventDefault(); addSessionToGoogleCalendar(${session.id})">Google</a>
-                        </div>
-                    </div>
-                </div>
+                ${sessionActionsHtml}
             </div>
         `;
+  }
+
+  getCurrentTimeInItaly() {
+    // Get current time in Italy (CET/CEST timezone)
+    return new Date(
+      new Date().toLocaleString("en-US", {
+        timeZone: "Europe/Rome",
+      })
+    );
+  }
+
+  parseSessionDateTime(session) {
+    // Parse session date and time in Italy timezone (CET/CEST)
+    const [startTime, endTime] = session.time.split("-");
+    const [startHour, startMinute] = startTime.split(":").map(Number);
+    const [endHour, endMinute] = endTime.split(":").map(Number);
+
+    // Create date objects for Italy timezone
+    // Session times are in CET/CEST, so we need to create them properly
+    const startDateTime = new Date(`${session.date}T${startTime}:00+02:00`); // CEST is UTC+2
+    const endDateTime = new Date(`${session.date}T${endTime}:00+02:00`);
+
+    return { startDateTime, endDateTime };
+  }
+
+  getSessionStatus(session) {
+    // Get current time in Italy
+    const nowInItaly = this.getCurrentTimeInItaly();
+    const { startDateTime, endDateTime } = this.parseSessionDateTime(session);
+
+    // Calculate time differences in milliseconds
+    const timeToStart = startDateTime.getTime() - nowInItaly.getTime();
+    const timeToEnd = endDateTime.getTime() - nowInItaly.getTime();
+
+    // Check if session is in the past
+    const isPast = timeToEnd < 0;
+
+    // Check if session is currently ongoing
+    const isOngoing = timeToStart <= 0 && timeToEnd > 0;
+
+    // Check if session starts within 30 minutes
+    const startingSoon = timeToStart > 0 && timeToStart <= 30 * 60 * 1000; // 30 minutes in milliseconds
+
+    return {
+      isPast,
+      isOngoing,
+      startingSoon,
+      timeToStart,
+      timeToEnd,
+      debug: {
+        nowInItaly: nowInItaly.toISOString(),
+        startDateTime: startDateTime.toISOString(),
+        endDateTime: endDateTime.toISOString(),
+        timeToStart: Math.round(timeToStart / 1000 / 60), // minutes
+        timeToEnd: Math.round(timeToEnd / 1000 / 60), // minutes
+      },
+    };
+  }
+
+  createStatusBadge(status) {
+    if (status.isOngoing) {
+      return '<span class="status-badge ongoing">In Progress</span>';
+    } else if (status.startingSoon) {
+      return '<span class="status-badge starting-soon">Starting Soon</span>';
+    } else if (status.isPast) {
+      return '<span class="status-badge done">Done</span>';
+    }
+    return "";
   }
 
   getTagCategory(tag) {
@@ -1988,15 +2101,18 @@ function addSessionToIcal(sessionId) {
       "END:VCALENDAR",
     ].join("\r\n");
 
-    const blob = new Blob([icalContent], { type: "text/calendar;charset=utf-8" });
+    const blob = new Blob([icalContent], {
+      type: "text/calendar;charset=utf-8",
+    });
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
-    const filename = `${session.title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}.ics`;
+    const filename = `${session.title
+      .replace(/[^a-z0-9]/gi, "_")
+      .toLowerCase()}.ics`;
     link.setAttribute("download", filename);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-
   } catch (e) {
     console.error("Failed to generate iCal file:", e);
     alert("An unexpected error occurred while creating the iCal file.");
