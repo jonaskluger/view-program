@@ -165,6 +165,58 @@ main {
     font-size: 0.9rem;
 }
 
+/* Day divider styling */
+.day-divider {
+    margin: 2rem 0 1rem 0;
+}
+
+.day-divider:first-child {
+    margin-top: 0;
+}
+
+.day-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 2px solid var(--secondary-color);
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.day-header::before {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border-color), transparent);
+}
+
+.day-header::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to left, transparent, var(--border-color), transparent);
+}
+
+.day-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.day-date {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--secondary-color);
+    background: var(--background-color);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: 2px solid var(--secondary-color);
+}
+
 .sessions-grid {
     display: grid;
     gap: 1.5rem;

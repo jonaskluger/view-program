@@ -1749,6 +1749,8 @@ class ConferenceSessionsFilter {
   constructor() {
     this.allSessions = sessionsData;
     this.filteredSessions = [...this.allSessions];
+    // Sort sessions by date and time initially
+    this.sortSessionsByDateTime();
     this.initializeElements();
     this.attachEventListeners();
     this.renderSessions();
@@ -1813,8 +1815,37 @@ class ConferenceSessionsFilter {
       return dayMatch && categoryMatch && typeMatch && searchMatch;
     });
 
+    // Sort sessions by date and time
+    this.sortSessionsByDateTime();
+
     this.renderSessions();
     this.updateResultsCount();
+  }
+
+  sortSessionsByDateTime() {
+    this.filteredSessions.sort((a, b) => {
+      // Get session status for both sessions
+      const aStatus = this.getSessionStatus(a);
+      const bStatus = this.getSessionStatus(b);
+
+      // If one is past and the other is not, move past sessions to the end
+      if (aStatus.isPast !== bStatus.isPast) {
+        return aStatus.isPast ? 1 : -1; // Past sessions go to the end (1), upcoming sessions stay at the beginning (-1)
+      }
+
+      // If both have the same status (both past or both upcoming), sort chronologically
+      // First sort by date
+      const dateComparison = a.date.localeCompare(b.date);
+      if (dateComparison !== 0) {
+        return dateComparison;
+      }
+
+      // If dates are the same, sort by start time
+      const aStartTime = a.time.split("-")[0]; // Get start time (before the dash)
+      const bStartTime = b.time.split("-")[0]; // Get start time (before the dash)
+
+      return aStartTime.localeCompare(bStartTime);
+    });
   }
 
   clearAllFilters() {
@@ -1836,9 +1867,32 @@ class ConferenceSessionsFilter {
       return;
     }
 
-    this.sessionsContainer.innerHTML = this.filteredSessions
-      .map((session) => this.createSessionCard(session))
-      .join("");
+    // Group sessions by date and create HTML with dividers
+    let html = "";
+    let currentDate = null;
+
+    this.filteredSessions.forEach((session, index) => {
+      // Add day divider when the date changes
+      if (session.date !== currentDate) {
+        currentDate = session.date;
+        const formattedDate = this.formatDate(session.date);
+        const dayName = this.getDayName(session.date);
+
+        html += `
+          <div class="day-divider">
+            <h2 class="day-header">
+              <span class="day-name">${dayName}</span>
+              <span class="day-date">${formattedDate}</span>
+            </h2>
+          </div>
+        `;
+      }
+
+      // Add the session card
+      html += this.createSessionCard(session);
+    });
+
+    this.sessionsContainer.innerHTML = html;
   }
 
   createSessionCard(session) {
@@ -2052,6 +2106,12 @@ class ConferenceSessionsFilter {
       month: "long",
       day: "numeric",
     };
+    return date.toLocaleDateString("en-US", options);
+  }
+
+  getDayName(dateString) {
+    const date = new Date(dateString);
+    const options = { weekday: "long" };
     return date.toLocaleDateString("en-US", options);
   }
 
