@@ -193,14 +193,29 @@ Options:
    */
   parseSessionFromHtml(sessionHtml, sessionDate) {
     try {
-      // Extract title and URL
-      const titleMatch = sessionHtml.match(
+      // Extract title and URL - try multiple patterns
+      let titleMatch = sessionHtml.match(
         /<h3 class="session-title"><a[^>]*href="([^"]*)"[^>]*>([^<]+)<\/a><\/h3>/
       );
+
+      // Alternative pattern for different HTML structure
+      if (!titleMatch) {
+        titleMatch = sessionHtml.match(
+          /<a[^>]*href="(https:\/\/www\.viewconference\.it\/article\/[^"]*)"[^>]*>([^<]+)<\/a>/
+        );
+      }
+
       if (!titleMatch) return null;
 
       const url = titleMatch[1];
       const title = titleMatch[2].trim();
+
+      // Validate URL
+      if (!url || !url.startsWith("https://www.viewconference.it/")) {
+        console.warn(
+          `⚠️  Warning: Invalid or missing URL for session "${title}": ${url}`
+        );
+      }
 
       // Extract time and room info
       const timeMatch = sessionHtml.match(
@@ -504,6 +519,7 @@ Options:
         description: description,
         categories: categories,
         tags: tags,
+        url: url,
       };
     } catch (error) {
       console.warn(
@@ -674,6 +690,14 @@ const sessionsData = [];
         return;
       }
 
+      // Report URL statistics
+      const sessionsWithUrls = sessions.filter(
+        (s) => s.url && s.url.startsWith("https://www.viewconference.it/")
+      ).length;
+      console.log(
+        `📊 URL Status: ${sessionsWithUrls}/${sessions.length} sessions have valid URLs`
+      );
+
       this.updateScriptFile(sessions);
       console.log("\n🎉 Session data updated successfully!");
     } catch (error) {
@@ -695,12 +719,21 @@ const sessionsData = [];
         console.log(`   📅 ${session.date} ${session.time}`);
         console.log(`   📍 ${session.location} (${session.type})`);
         console.log(`   👥 ${session.speakers.join(", ")}`);
-        console.log(`   🏷️  ${session.categories.join(", ")}\n`);
+        console.log(`   🏷️  ${session.categories.join(", ")}`);
+        console.log(`   🔗 ${session.url || "No URL"}\n`);
       });
 
       if (sessions.length > 10) {
         console.log(`... and ${sessions.length - 10} more sessions`);
       }
+
+      // Report URL statistics
+      const sessionsWithUrls = sessions.filter(
+        (s) => s.url && s.url.startsWith("https://www.viewconference.it/")
+      ).length;
+      console.log(
+        `\n📊 URL Status: ${sessionsWithUrls}/${sessions.length} sessions have valid URLs`
+      );
     } catch (error) {
       throw new Error(`Preview failed: ${error.message}`);
     }
