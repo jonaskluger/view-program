@@ -2806,15 +2806,16 @@ class ConferenceSessionsFilter {
 
     const tagsHtml =
       !sessionStatus.isPast && session.tags.length > 0
-        ? `<div class="session-tags">
-                ${session.tags
-                  .map((tag) => {
-                    const category = this.getTagCategory(tag);
-                    return `<span class="tag ${category}">${tag}</span>`;
-                  })
-                  .join("")}
-            </div>`
-        : "";
+      ? `<div class="session-tags">
+          ${[...session.tags]
+            .sort((a, b) => a.localeCompare(b))
+            .map((tag) => {
+            const category = this.getTagCategory(tag);
+            return `<span class="tag ${category}">${tag}</span>`;
+            })
+            .join("")}
+        </div>`
+      : "";
 
     const sessionActionsHtml = !sessionStatus.isPast
       ? `<div class="session-actions">
