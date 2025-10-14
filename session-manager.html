@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Session Data Manager - VIEW Conference 2025</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f5f5f5;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #333;
+      }
+
+      .container {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+      }
+
+      .tabs {
+        display: flex;
+        border-bottom: 2px solid #e0e0e0;
+        margin-bottom: 20px;
+      }
+
+      .tab {
+        padding: 10px 20px;
+        cursor: pointer;
+        border: none;
+        background: none;
+        font-size: 16px;
+        color: #666;
+        border-bottom: 3px solid transparent;
+        transition: all 0.3s ease;
+      }
+
+      .tab.active {
+        color: #007acc;
+        border-bottom-color: #007acc;
+        font-weight: 600;
+      }
+
+      .tab-content {
+        display: none;
+      }
+
+      .tab-content.active {
+        display: block;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600;
+        color: #333;
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        border: 2px solid #ddd;
+        border-radius: 5px;
+        font-size: 14px;
+        box-sizing: border-box;
+        transition: border-color 0.3s ease;
+      }
+
+      input:focus,
+      select:focus,
+      textarea:focus {
+        outline: none;
+        border-color: #007acc;
+      }
+
+      textarea {
+        height: 80px;
+        resize: vertical;
+      }
+
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+      }
+
+      .btn {
+        background: #007acc;
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        transition: background 0.3s ease;
+        margin-right: 10px;
+      }
+
+      .btn:hover {
+        background: #005a99;
+      }
+
+      .btn-danger {
+        background: #dc3545;
+      }
+
+      .btn-danger:hover {
+        background: #c82333;
+      }
+
+      .btn-success {
+        background: #28a745;
+      }
+
+      .btn-success:hover {
+        background: #218838;
+      }
+
+      .session-list {
+        max-height: 400px;
+        overflow-y: auto;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
+      .session-item {
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+        cursor: pointer;
+        transition: background 0.2s ease;
+      }
+
+      .session-item:hover {
+        background: #f8f9fa;
+      }
+
+      .session-item.selected {
+        background: #e3f2fd;
+        border-left: 4px solid #007acc;
+      }
+
+      .session-title {
+        font-weight: 600;
+        color: #333;
+      }
+
+      .session-meta {
+        color: #666;
+        font-size: 12px;
+        margin-top: 5px;
+      }
+
+      .output {
+        background: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 5px;
+        padding: 15px;
+        margin-top: 15px;
+        font-family: monospace;
+        white-space: pre-wrap;
+        max-height: 200px;
+        overflow-y: auto;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+      }
+
+      .stat-card {
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 5px;
+        border-left: 4px solid #007acc;
+      }
+
+      .stat-number {
+        font-size: 24px;
+        font-weight: 700;
+        color: #007acc;
+      }
+
+      .stat-label {
+        color: #666;
+        font-size: 14px;
+      }
+
+      .message {
+        padding: 10px 15px;
+        border-radius: 5px;
+        margin: 10px 0;
+      }
+
+      .message.success {
+        background: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+      }
+
+      .message.error {
+        background: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Session Data Manager</h1>
+      <p>VIEW Conference 2025 - Session Management Interface</p>
+    </div>
+
+    <div class="container">
+      <div class="tabs">
+        <button class="tab active" data-tab="add">Add Session</button>
+        <button class="tab" data-tab="edit">Edit Session</button>
+        <button class="tab" data-tab="fetch">Fetch Latest</button>
+        <button class="tab" data-tab="stats">Statistics</button>
+        <button class="tab" data-tab="import-export">Import/Export</button>
+      </div>
+
+      <!-- Add Session Tab -->
+      <div class="tab-content active" id="add-tab">
+        <h3>Add New Session</h3>
+        <form id="add-session-form">
+          <div class="form-group">
+            <label for="add-title">Session Title *</label>
+            <input type="text" id="add-title" required />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="add-type">Type *</label>
+              <select id="add-type" required>
+                <option value="">Select Type</option>
+                <option value="workshop">Workshop</option>
+                <option value="masterclass">Masterclass</option>
+                <option value="presentation">Presentation</option>
+                <option value="panel">Panel</option>
+                <option value="keynote">Keynote</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="add-location">Location *</label>
+              <input
+                type="text"
+                id="add-location"
+                required
+                placeholder="e.g., ITS 1"
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="add-date">Date *</label>
+              <input type="date" id="add-date" required />
+            </div>
+
+            <div class="form-group">
+              <label for="add-time">Time *</label>
+              <input
+                type="text"
+                id="add-time"
+                required
+                placeholder="e.g., 09:00-12:00"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="add-speakers">Speakers * (comma separated)</label>
+            <input
+              type="text"
+              id="add-speakers"
+              required
+              placeholder="e.g., John Doe, Jane Smith"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="add-description">Description *</label>
+            <textarea
+              id="add-description"
+              required
+              placeholder="Detailed description of the session"
+            ></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="add-categories">Categories (comma separated)</label>
+              <input
+                type="text"
+                id="add-categories"
+                placeholder="e.g., vfx, technology"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="add-tags">Tags (comma separated)</label>
+              <input
+                type="text"
+                id="add-tags"
+                placeholder="e.g., rendering, pipeline"
+              />
+            </div>
+          </div>
+
+          <button type="submit" class="btn">Add Session</button>
+        </form>
+      </div>
+
+      <!-- Edit Session Tab -->
+      <div class="tab-content" id="edit-tab">
+        <h3>Edit Existing Session</h3>
+        <div class="form-row">
+          <div>
+            <label>Select Session to Edit:</label>
+            <div class="session-list" id="session-list"></div>
+          </div>
+          <div>
+            <form id="edit-session-form" style="display: none">
+              <input type="hidden" id="edit-session-id" />
+
+              <div class="form-group">
+                <label for="edit-title">Session Title</label>
+                <input type="text" id="edit-title" />
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="edit-type">Type</label>
+                  <select id="edit-type">
+                    <option value="workshop">Workshop</option>
+                    <option value="masterclass">Masterclass</option>
+                    <option value="presentation">Presentation</option>
+                    <option value="panel">Panel</option>
+                    <option value="keynote">Keynote</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="edit-location">Location</label>
+                  <input type="text" id="edit-location" />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="edit-date">Date</label>
+                  <input type="date" id="edit-date" />
+                </div>
+
+                <div class="form-group">
+                  <label for="edit-time">Time</label>
+                  <input type="text" id="edit-time" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="edit-speakers">Speakers (comma separated)</label>
+                <input type="text" id="edit-speakers" />
+              </div>
+
+              <div class="form-group">
+                <label for="edit-description">Description</label>
+                <textarea id="edit-description"></textarea>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="edit-categories"
+                    >Categories (comma separated)</label
+                  >
+                  <input type="text" id="edit-categories" />
+                </div>
+
+                <div class="form-group">
+                  <label for="edit-tags">Tags (comma separated)</label>
+                  <input type="text" id="edit-tags" />
+                </div>
+              </div>
+
+              <button type="submit" class="btn">Update Session</button>
+              <button type="button" class="btn btn-danger" id="delete-session">
+                Delete Session
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fetch Latest Tab -->
+      <div class="tab-content" id="fetch-tab">
+        <h3>Fetch Latest Data</h3>
+
+        <div
+          class="form-group"
+          style="
+            background: #e8f4fd;
+            border: 1px solid #007acc;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+          "
+        >
+          <h4 style="color: #007acc; margin-top: 0">
+            🎯 Recommended: Use CLI Tool
+          </h4>
+          <p style="margin-bottom: 10px">
+            The easiest way to update session data is using the command-line
+            tool:
+          </p>
+          <code
+            style="
+              background: #f5f5f5;
+              padding: 10px;
+              display: block;
+              border-radius: 3px;
+              margin: 10px 0;
+            "
+          >
+            ./update-sessions fetch
+          </code>
+          <p style="margin: 10px 0 0 0; font-size: 14px; color: #666">
+            Available commands: <code>stats</code>, <code>compare</code>,
+            <code>preview</code>, <code>fetch</code>, <code>help</code>
+          </p>
+        </div>
+
+        <div class="form-group">
+          <h4>Browser-Based Fetch (Limited by CORS)</h4>
+          <p style="color: #666; font-size: 14px">
+            Note: Browser fetching may fail due to CORS restrictions. Use CLI
+            tool above for reliable updates.
+          </p>
+          <button class="btn" id="fetch-auto-btn">Try Browser Fetch</button>
+          <button class="btn btn-success" id="preview-data-btn">
+            Preview Data
+          </button>
+          <button class="btn" id="compare-data-btn">
+            Compare with Current
+          </button>
+        </div>
+
+        <div class="form-group">
+          <h4>Manual Import (if CORS blocks automatic fetch)</h4>
+          <p>
+            1. Visit:
+            <a
+              href="https://www.viewconference.it/assets/html/view_CET.html"
+              target="_blank"
+              >VIEW Conference Schedule</a
+            >
+          </p>
+          <p>2. Copy the entire page content (Ctrl+A, Ctrl+C)</p>
+          <p>
+            3. Paste it in the textarea below and click "Process Manual Data"
+          </p>
+          <textarea
+            id="manual-html-data"
+            placeholder="Paste the HTML content from VIEW Conference website here..."
+            rows="8"
+          ></textarea>
+          <button class="btn" id="process-manual-btn">
+            Process Manual Data
+          </button>
+        </div>
+
+        <div class="output" id="fetch-output"></div>
+      </div>
+
+      <!-- Statistics Tab -->
+      <div class="tab-content" id="stats-tab">
+        <h3>Session Statistics</h3>
+        <div class="stats-grid" id="stats-container"></div>
+      </div>
+
+      <!-- Import/Export Tab -->
+      <div class="tab-content" id="import-export-tab">
+        <h3>Import/Export Sessions</h3>
+
+        <div class="form-group">
+          <button class="btn btn-success" id="export-btn">
+            Export Sessions to JSON
+          </button>
+          <button class="btn" id="copy-export">Copy to Clipboard</button>
+        </div>
+
+        <div class="form-group">
+          <label for="import-data">Import Sessions (JSON format):</label>
+          <textarea
+            id="import-data"
+            placeholder="Paste JSON data here..."
+          ></textarea>
+          <button class="btn" id="import-btn">Import Sessions</button>
+        </div>
+
+        <div class="output" id="export-output"></div>
+      </div>
+    </div>
+
+    <div id="messages"></div>
+
+    <script>
+      // Wait for the main script to load
+      document.addEventListener("DOMContentLoaded", function () {
+        // Load required scripts
+        loadScript("update-sessions.js", () => {
+          loadScript("fetch-view-data.js", initializeManager);
+        });
+      });
+
+      function loadScript(src, callback) {
+        if (
+          src === "update-sessions.js" &&
+          typeof window.sessionUpdater !== "undefined"
+        ) {
+          callback();
+          return;
+        }
+        if (
+          src === "fetch-view-data.js" &&
+          typeof window.viewDataFetcher !== "undefined"
+        ) {
+          callback();
+          return;
+        }
+
+        const script = document.createElement("script");
+        script.src = src;
+        script.onload = callback;
+        script.onerror = () => console.error(`Failed to load ${src}`);
+        document.head.appendChild(script);
+      }
+
+      function initializeManager() {
+        // Tab switching
+        document.querySelectorAll(".tab").forEach((tab) => {
+          tab.addEventListener("click", () => {
+            const tabName = tab.dataset.tab;
+
+            // Update active tab
+            document
+              .querySelectorAll(".tab")
+              .forEach((t) => t.classList.remove("active"));
+            document
+              .querySelectorAll(".tab-content")
+              .forEach((c) => c.classList.remove("active"));
+
+            tab.classList.add("active");
+            document.getElementById(`${tabName}-tab`).classList.add("active");
+
+            // Load content for specific tabs
+            if (tabName === "edit") loadSessionList();
+            if (tabName === "stats") loadStats();
+            if (tabName === "fetch") updateFetchStatus();
+          });
+        });
+
+        // Add session form
+        document
+          .getElementById("add-session-form")
+          .addEventListener("submit", handleAddSession);
+
+        // Edit session form
+        document
+          .getElementById("edit-session-form")
+          .addEventListener("submit", handleEditSession);
+        document
+          .getElementById("delete-session")
+          .addEventListener("click", handleDeleteSession);
+
+        // Import/Export functionality
+        document
+          .getElementById("export-btn")
+          .addEventListener("click", handleExport);
+        document
+          .getElementById("copy-export")
+          .addEventListener("click", copyExportToClipboard);
+        document
+          .getElementById("import-btn")
+          .addEventListener("click", handleImport);
+
+        // Data fetching functionality
+        document
+          .getElementById("fetch-auto-btn")
+          .addEventListener("click", handleAutoFetch);
+        document
+          .getElementById("preview-data-btn")
+          .addEventListener("click", handlePreviewData);
+        document
+          .getElementById("compare-data-btn")
+          .addEventListener("click", handleCompareData);
+        document
+          .getElementById("process-manual-btn")
+          .addEventListener("click", handleManualData);
+      }
+
+      function handleAddSession(e) {
+        e.preventDefault();
+
+        const formData = {
+          title: document.getElementById("add-title").value,
+          type: document.getElementById("add-type").value,
+          date: document.getElementById("add-date").value,
+          time: document.getElementById("add-time").value,
+          location: document.getElementById("add-location").value,
+          speakers: document
+            .getElementById("add-speakers")
+            .value.split(",")
+            .map((s) => s.trim()),
+          description: document.getElementById("add-description").value,
+          categories: document
+            .getElementById("add-categories")
+            .value.split(",")
+            .map((s) => s.trim())
+            .filter((s) => s),
+          tags: document
+            .getElementById("add-tags")
+            .value.split(",")
+            .map((s) => s.trim())
+            .filter((s) => s),
+        };
+
+        if (window.addSession(formData)) {
+          showMessage("Session added successfully!", "success");
+          document.getElementById("add-session-form").reset();
+        } else {
+          showMessage(
+            "Error adding session. Check console for details.",
+            "error"
+          );
+        }
+      }
+
+      function loadSessionList() {
+        const sessionList = document.getElementById("session-list");
+        const sessions = window.sessionUpdater
+          ? window.sessionUpdater.sessions
+          : [];
+
+        sessionList.innerHTML = sessions
+          .map(
+            (session) => `
+                <div class="session-item" data-id="${session.id}">
+                    <div class="session-title">${session.title}</div>
+                    <div class="session-meta">
+                        ${session.type} | ${session.date} ${session.time} | ${session.location}
+                    </div>
+                </div>
+            `
+          )
+          .join("");
+
+        // Add click handlers
+        sessionList.querySelectorAll(".session-item").forEach((item) => {
+          item.addEventListener("click", () => {
+            // Remove previous selection
+            sessionList
+              .querySelectorAll(".session-item")
+              .forEach((i) => i.classList.remove("selected"));
+            item.classList.add("selected");
+
+            // Load session data into form
+            const sessionId = parseInt(item.dataset.id);
+            loadSessionIntoForm(sessionId);
+          });
+        });
+      }
+
+      function loadSessionIntoForm(sessionId) {
+        const session = window.sessionUpdater.sessions.find(
+          (s) => s.id === sessionId
+        );
+        if (!session) return;
+
+        document.getElementById("edit-session-id").value = session.id;
+        document.getElementById("edit-title").value = session.title;
+        document.getElementById("edit-type").value = session.type;
+        document.getElementById("edit-date").value = session.date;
+        document.getElementById("edit-time").value = session.time;
+        document.getElementById("edit-location").value = session.location;
+        document.getElementById("edit-speakers").value =
+          session.speakers.join(", ");
+        document.getElementById("edit-description").value = session.description;
+        document.getElementById("edit-categories").value =
+          session.categories.join(", ");
+        document.getElementById("edit-tags").value = session.tags.join(", ");
+
+        document.getElementById("edit-session-form").style.display = "block";
+      }
+
+      function handleEditSession(e) {
+        e.preventDefault();
+
+        const sessionId = parseInt(
+          document.getElementById("edit-session-id").value
+        );
+        const updates = {
+          title: document.getElementById("edit-title").value,
+          type: document.getElementById("edit-type").value,
+          date: document.getElementById("edit-date").value,
+          time: document.getElementById("edit-time").value,
+          location: document.getElementById("edit-location").value,
+          speakers: document
+            .getElementById("edit-speakers")
+            .value.split(",")
+            .map((s) => s.trim()),
+          description: document.getElementById("edit-description").value,
+          categories: document
+            .getElementById("edit-categories")
+            .value.split(",")
+            .map((s) => s.trim())
+            .filter((s) => s),
+          tags: document
+            .getElementById("edit-tags")
+            .value.split(",")
+            .map((s) => s.trim())
+            .filter((s) => s),
+        };
+
+        if (window.updateSession(sessionId, updates)) {
+          showMessage("Session updated successfully!", "success");
+          loadSessionList(); // Refresh the list
+        } else {
+          showMessage(
+            "Error updating session. Check console for details.",
+            "error"
+          );
+        }
+      }
+
+      function handleDeleteSession() {
+        const sessionId = parseInt(
+          document.getElementById("edit-session-id").value
+        );
+        if (confirm("Are you sure you want to delete this session?")) {
+          if (window.removeSession(sessionId)) {
+            showMessage("Session deleted successfully!", "success");
+            document.getElementById("edit-session-form").style.display = "none";
+            loadSessionList(); // Refresh the list
+          } else {
+            showMessage(
+              "Error deleting session. Check console for details.",
+              "error"
+            );
+          }
+        }
+      }
+
+      function loadStats() {
+        const stats = window.getSessionStats ? window.getSessionStats() : {};
+        const container = document.getElementById("stats-container");
+
+        container.innerHTML = `
+                <div class="stat-card">
+                    <div class="stat-number">${stats.total || 0}</div>
+                    <div class="stat-label">Total Sessions</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">${
+                      stats.speakers ? stats.speakers.length : 0
+                    }</div>
+                    <div class="stat-label">Unique Speakers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">${
+                      stats.byType ? Object.keys(stats.byType).length : 0
+                    }</div>
+                    <div class="stat-label">Session Types</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">${
+                      stats.byDate ? Object.keys(stats.byDate).length : 0
+                    }</div>
+                    <div class="stat-label">Conference Days</div>
+                </div>
+            `;
+      }
+
+      function handleExport() {
+        const exportData = window.exportSessions
+          ? window.exportSessions()
+          : "[]";
+        document.getElementById("export-output").textContent = exportData;
+      }
+
+      function copyExportToClipboard() {
+        const exportOutput = document.getElementById("export-output");
+        if (exportOutput.textContent) {
+          navigator.clipboard.writeText(exportOutput.textContent).then(() => {
+            showMessage("Export data copied to clipboard!", "success");
+          });
+        }
+      }
+
+      function handleImport() {
+        const importData = document.getElementById("import-data").value;
+        if (!importData.trim()) {
+          showMessage("Please enter JSON data to import.", "error");
+          return;
+        }
+
+        if (window.importSessions && window.importSessions(importData)) {
+          showMessage("Sessions imported successfully!", "success");
+          document.getElementById("import-data").value = "";
+        } else {
+          showMessage(
+            "Error importing sessions. Check JSON format and console for details.",
+            "error"
+          );
+        }
+      }
+
+      function handleAutoFetch() {
+        if (!window.fetchLatestViewData) {
+          showMessage(
+            "Data fetcher not loaded. Please refresh the page.",
+            "error"
+          );
+          return;
+        }
+
+        showMessage(
+          "Fetching latest data from VIEW Conference website...",
+          "success"
+        );
+        document.getElementById("fetch-output").textContent = "Fetching...";
+
+        window
+          .fetchLatestViewData()
+          .then((success) => {
+            if (success) {
+              showMessage("Successfully updated with latest data!", "success");
+              document.getElementById("fetch-output").textContent =
+                "Update completed successfully.";
+              // Refresh other tabs
+              if (
+                document.getElementById("edit-tab").classList.contains("active")
+              ) {
+                loadSessionList();
+              }
+              if (
+                document
+                  .getElementById("stats-tab")
+                  .classList.contains("active")
+              ) {
+                loadStats();
+              }
+            } else {
+              showMessage(
+                "Failed to fetch data. Try the manual method.",
+                "error"
+              );
+              document.getElementById("fetch-output").textContent =
+                "Fetch failed. Check console for details or use manual method.";
+            }
+          })
+          .catch((error) => {
+            showMessage("Error fetching data: " + error.message, "error");
+            document.getElementById("fetch-output").textContent =
+              "Error: " + error.message;
+          });
+      }
+
+      function handlePreviewData() {
+        if (!window.previewViewData) {
+          showMessage(
+            "Data fetcher not loaded. Please refresh the page.",
+            "error"
+          );
+          return;
+        }
+
+        showMessage("Previewing data...", "success");
+
+        window
+          .previewViewData()
+          .then((sessions) => {
+            const preview = sessions
+              .slice(0, 5)
+              .map(
+                (s) =>
+                  `${s.title} (${s.date} ${s.time}) - ${s.speakers.join(", ")}`
+              )
+              .join("\n");
+
+            document.getElementById("fetch-output").textContent = `Preview of ${
+              sessions.length
+            } sessions:\n\n${preview}\n\n... and ${
+              sessions.length - 5
+            } more sessions`;
+          })
+          .catch((error) => {
+            showMessage("Error previewing data: " + error.message, "error");
+          });
+      }
+
+      function handleCompareData() {
+        if (!window.compareViewData) {
+          showMessage(
+            "Data fetcher not loaded. Please refresh the page.",
+            "error"
+          );
+          return;
+        }
+
+        showMessage("Comparing data...", "success");
+
+        window
+          .compareViewData()
+          .then((comparison) => {
+            if (comparison) {
+              const output = `Data Comparison:
+Current sessions: ${comparison.existing}
+Latest available: ${comparison.new}
+Difference: ${comparison.difference > 0 ? "+" : ""}${comparison.difference}
+
+${
+  comparison.difference > 0
+    ? "New sessions available!"
+    : comparison.difference < 0
+    ? "Some sessions may have been removed."
+    : "Your data is up to date."
+}`;
+
+              document.getElementById("fetch-output").textContent = output;
+            } else {
+              showMessage("Failed to compare data.", "error");
+            }
+          })
+          .catch((error) => {
+            showMessage("Error comparing data: " + error.message, "error");
+          });
+      }
+
+      function handleManualData() {
+        const htmlContent = document.getElementById("manual-html-data").value;
+
+        if (!htmlContent.trim()) {
+          showMessage("Please paste the HTML content first.", "error");
+          return;
+        }
+
+        if (!window.updateSessionsFromManualData) {
+          showMessage(
+            "Manual data processor not loaded. Please refresh the page.",
+            "error"
+          );
+          return;
+        }
+
+        showMessage("Processing manual data...", "success");
+
+        try {
+          const success = window.updateSessionsFromManualData(htmlContent);
+          if (success) {
+            showMessage("Successfully updated from manual data!", "success");
+            document.getElementById("manual-html-data").value = "";
+            document.getElementById("fetch-output").textContent =
+              "Manual import completed successfully.";
+
+            // Refresh other tabs
+            if (
+              document.getElementById("edit-tab").classList.contains("active")
+            ) {
+              loadSessionList();
+            }
+            if (
+              document.getElementById("stats-tab").classList.contains("active")
+            ) {
+              loadStats();
+            }
+          } else {
+            showMessage(
+              "Failed to process manual data. Check console for details.",
+              "error"
+            );
+          }
+        } catch (error) {
+          showMessage(
+            "Error processing manual data: " + error.message,
+            "error"
+          );
+        }
+      }
+
+      function updateFetchStatus() {
+        const output = document.getElementById("fetch-output");
+        if (window.viewDataFetcher) {
+          output.textContent =
+            "Data fetcher ready. You can now fetch the latest session data from VIEW Conference website.";
+        } else {
+          output.textContent = "Loading data fetcher...";
+        }
+      }
+
+      function showMessage(text, type) {
+        const messagesContainer = document.getElementById("messages");
+        const message = document.createElement("div");
+        message.className = `message ${type}`;
+        message.textContent = text;
+
+        messagesContainer.appendChild(message);
+
+        setTimeout(() => {
+          message.remove();
+        }, 5000);
+      }
+    </script>
+  </body>
+</html>

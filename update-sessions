@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# VIEW Conference Session Data Updater
+# Simple wrapper script for the Node.js CLI tool
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+CLI_SCRIPT="$SCRIPT_DIR/update-sessions-cli.js"
+
+# Check if Node.js is installed
+if ! command -v node &> /dev/null; then
+    echo "❌ Error: Node.js is not installed or not in PATH"
+    echo "Please install Node.js from https://nodejs.org/"
+    exit 1
+fi
+
+# Check if CLI script exists
+if [ ! -f "$CLI_SCRIPT" ]; then
+    echo "❌ Error: CLI script not found at $CLI_SCRIPT"
+    exit 1
+fi
+
+# Run the CLI with all arguments
+node "$CLI_SCRIPT" "$@"
