@@ -164,9 +164,11 @@ Options:
     const sessionPattern = /<div class="session[^"]*"[^>]*>([\s\S]*?)<\/div>/g;
     let match;
 
+    let sessionCount = 0;
     while ((match = sessionPattern.exec(html)) !== null) {
       const sessionHtml = match[1];
       const sessionPosition = match.index;
+      sessionCount++;
 
       // Determine which day this session belongs to
       let sessionDate = "2025-10-14"; // default
@@ -261,28 +263,22 @@ Options:
   extractSpeakers(sessionHtml) {
     const speakers = [];
 
-    // Try multiple patterns to find speakers
-    const patterns = [
-      /<span class="session-presenter"><a[^>]*>([^<]+)<\/a>/g,
-      /<a[^>]*href="[^"]*speaker[^"]*">([^<]+)<\/a>/g,
-      /href="[^"]*speaker[^"]*">([^<]+)<\/a>/g,
-    ];
+    // Use the working pattern based on actual HTML structure
+    const speakerPattern =
+      /href="https:\/\/www\.viewconference\.it\/speaker\/[^"]*">([^<]+)<\/a>/g;
+    let match;
 
-    for (const pattern of patterns) {
-      let match;
-      while ((match = pattern.exec(sessionHtml)) !== null) {
-        const speakerName = match[1].trim();
-        if (
-          speakerName &&
-          speakerName !== "" &&
-          !speakers.includes(speakerName)
-        ) {
-          // Convert from ALL CAPS to proper case
-          const properCase = this.toProperCase(speakerName);
-          speakers.push(properCase);
-        }
+    while ((match = speakerPattern.exec(sessionHtml)) !== null) {
+      const speakerName = match[1].trim();
+      if (
+        speakerName &&
+        speakerName !== "" &&
+        !speakers.includes(speakerName)
+      ) {
+        // Convert from ALL CAPS to proper case
+        const properCase = this.toProperCase(speakerName);
+        speakers.push(properCase);
       }
-      if (speakers.length > 0) break; // Stop if we found speakers
     }
 
     return speakers.length > 0 ? speakers : ["TBD"];
@@ -515,29 +511,6 @@ Options:
       );
       return null;
     }
-  }
-
-  /**
-   * Extract speaker names
-   */
-  extractSpeakers(details) {
-    const speakers = [];
-    const speakerPattern = /\[(.*?)\]\(.*?speaker.*?\)/g;
-    let match;
-
-    while ((match = speakerPattern.exec(details)) !== null) {
-      const speakerName = match[1]
-        .trim()
-        .replace(/^(Dr\.|Prof\.)?\s*/, "")
-        .replace(/,.*$/, "")
-        .trim();
-
-      if (speakerName && !speakers.includes(speakerName)) {
-        speakers.push(speakerName);
-      }
-    }
-
-    return speakers.length > 0 ? speakers : ["TBD"];
   }
 
   /**

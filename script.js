@@ -1,1749 +1,2615 @@
 // Conference sessions data extracted from the schedule
 const sessionsData = [
-  {
-    id: 1,
-    title: "Learn the History of Visual Effects",
-    type: "workshop",
-    date: "2025-10-12",
-    time: "09:00-12:00",
-    location: "ITS 1",
-    speakers: ["Ian Failes"],
-    description:
-      "3-Hour Workshop exploring the evolution of visual effects in cinema",
-    categories: ["vfx"],
-    tags: ["history", "vfx", "cinema"],
-  },
-  {
-    id: 2,
-    title:
-      "Aspects of Visualization with Unreal Engine: Hands-On Pre-Viz and Post-Viz",
-    type: "workshop",
-    date: "2025-10-12",
-    time: "09:00-16:30",
-    location: "ITS 2",
-    speakers: ["Oleg Fryazinov"],
-    description:
-      "6 hour Workshop covering Pre-Visualization and Post-Visualization techniques with Unreal Engine",
-    categories: ["technology", "vfx"],
-    tags: ["unreal engine", "previz", "postviz", "visualization"],
-  },
-  {
-    id: 3,
-    title: "Gaussian Splatting for Production",
-    type: "workshop",
-    date: "2025-10-12",
-    time: "12:15-16:15",
-    location: "ITS 1",
-    speakers: ["Eloi Champagne"],
-    description:
-      "Advanced workshop on using Gaussian Splatting techniques in production environments",
-    categories: ["technology", "rendering"],
-    tags: ["gaussian splatting", "rendering", "production"],
-  },
-  {
-    id: 4,
-    title: "Katana: From MultiShot to MultiStyle",
-    type: "workshop",
-    date: "2025-10-12",
-    time: "09:00-11:00",
-    location: "ITS 13",
-    speakers: ["Christos Obretenov", "Ernst Janssen Groesbeek"],
-    description:
-      "Workshop covering advanced Katana techniques for stylized rendering workflows",
-    categories: ["rendering", "technology"],
-    tags: ["katana", "rendering", "stylized", "lookdev"],
-  },
-  {
-    id: 5,
-    title:
-      "Stylized Rendering: Two Approaches From 2D Artwork to 3D and Back Again",
-    type: "workshop",
-    date: "2025-10-12",
-    time: "13:15-16:15",
-    location: "ITS 13",
-    speakers: [
-      "Christos Obretenov",
-      "Ernst Janssen Groesbeek",
-      "Denver Jackson",
-    ],
-    description:
-      "Explore different approaches to stylized rendering from concept to final output",
-    categories: ["rendering", "animation"],
-    tags: ["stylized", "rendering", "2d", "3d", "pipeline"],
-  },
-  {
-    id: 6,
-    title: "Code to Creation: Modern Tools for the Solo Artist",
-    type: "masterclass",
-    date: "2025-10-12",
-    time: "13:45-15:45",
-    location: "ITS TEATRO",
-    speakers: ["Boyan Georgiev"],
-    description:
-      "Masterclass on modern technical tools and workflows for independent artists",
-    categories: ["technology", "production"],
-    tags: ["tools", "workflow", "independent", "coding"],
-  },
-  {
-    id: 7,
-    title: "Code Meets Creativity: A Creative's Journey into Tech",
-    type: "workshop",
-    date: "2025-10-12",
-    time: "09:00-11:00",
-    location: "ITS TEATRO",
-    speakers: ["Jonas Kluger"],
-    description:
-      "Workshop bridging the gap between creative work and technical implementation",
-    categories: ["technology", "production"],
-    tags: ["coding", "creativity", "technology", "career"],
-  },
-  {
-    id: 8,
-    title: "Particles & Fluids in Motion: Exploring VFX with Unreal Engine",
-    type: "workshop",
-    date: "2025-10-12",
-    time: "11:15-17:15",
-    location: "ITS 10",
-    speakers: ["Christian Tagliapietra"],
-    description:
-      "Advanced workshop on particle and fluid systems in Unreal Engine for VFX",
-    categories: ["vfx", "technology"],
-    tags: ["particles", "fluids", "unreal engine", "vfx", "simulation"],
-  },
-  {
-    id: 9,
-    title: "Virtual Production",
-    type: "workshop",
-    date: "2025-10-13",
-    time: "09:00-15:00",
-    location: "ITS 15",
-    speakers: ["Habib Zargarpour"],
-    description:
-      "Comprehensive workshop on virtual production techniques and workflows",
-    categories: ["production", "technology"],
-    tags: ["virtual production", "led walls", "realtime", "cinematography"],
-  },
-  {
-    id: 10,
-    title: "Stylized Worlds with RenderMan XPU: A Creative Workshop",
-    type: "workshop",
-    date: "2025-10-13",
-    time: "12:15-14:15",
-    location: "ITS 3",
-    speakers: ["Dylan Sisson"],
-    description:
-      "Creative workshop using RenderMan XPU for stylized world creation",
-    categories: ["rendering", "animation"],
-    tags: ["renderman", "xpu", "stylized", "world building"],
-  },
-  {
-    id: 11,
-    title: "The Bad Guys 2",
-    type: "talk",
-    date: "2025-10-14",
-    time: "09:00-10:00",
-    location: "FUCINE",
-    speakers: ["Matt Baer", "Pierre Perifel"],
-    description:
-      "Behind the scenes of The Bad Guys 2 VFX and animation production at Dreamworks",
-    categories: ["animation", "vfx"],
-    tags: ["dreamworks", "animation", "vfx", "production"],
-  },
-  {
-    id: 12,
-    title: "Wicked: For Good (Premiere Talk)",
-    type: "talk",
-    date: "2025-10-14",
-    time: "10:15-11:15",
-    location: "FUCINE",
-    speakers: ["Dale Newton", "Pablo Helman"],
-    description:
-      "Premiere presentation of VFX work on Wicked featuring Framestore and ILM",
-    categories: ["vfx"],
-    tags: ["wicked", "musical", "framestore", "ilm", "vfx"],
-  },
-  {
-    id: 13,
-    title: "Beyond Prompts: Unlocking Creative Collaboration with AI Agents",
-    type: "talk",
-    date: "2025-10-14",
-    time: "14:00-15:00",
-    location: "FUCINE",
-    speakers: ["Rick Champagne"],
-    description:
-      "Exploring advanced AI collaboration techniques beyond simple prompting",
-    categories: ["ai", "technology"],
-    tags: ["ai", "collaboration", "agents", "nvidia"],
-  },
-  {
-    id: 14,
-    title: "Transforming Creativity: How AI Can Elevate Your Ideas",
-    type: "masterclass",
-    date: "2025-10-14",
-    time: "12:45-13:45",
-    location: "MEZZANINO",
-    speakers: ["Habib Zargarpour"],
-    description: "Masterclass on leveraging AI tools for creative enhancement",
-    categories: ["ai", "technology"],
-    tags: ["ai", "creativity", "tools", "enhancement"],
-  },
-  {
-    id: 15,
-    title:
-      "Beyond the Frame: 50 Years of ILM and the Next Era of Visual Storytelling",
-    type: "talk",
-    date: "2025-10-14",
-    time: "15:15-16:15",
-    location: "FUCINE",
-    speakers: ["Janet Lewin", "Ian Failes"],
-    description:
-      "Celebrating ILM's 50-year legacy and looking ahead to future innovations",
-    categories: ["vfx", "production"],
-    tags: ["ilm", "history", "innovation", "storytelling"],
-  },
-  {
-    id: 16,
-    title:
-      "Anatomy of a Battle: Rook's Rest and The Dance of Dragons in House of the Dragon Season 2",
-    type: "talk",
-    date: "2025-10-14",
-    time: "16:15-17:15",
-    location: "BINARIO3",
-    speakers: ["Claudia Marvisi"],
-    description:
-      "Technical breakdown of complex VFX sequences from House of the Dragon Season 2",
-    categories: ["vfx"],
-    tags: ["house of dragon", "vfx", "creatures", "pixomondo"],
-  },
-  {
-    id: 17,
-    title: "SENTINEL and AI: Know Your Foe!",
-    type: "panel",
-    date: "2025-10-14",
-    time: "16:30-17:30",
-    location: "FUCINE",
-    speakers: [
-      "Phil Tippett",
-      "Gary Mundell",
-      "Mark Dubeau",
-      "Tom Gibbons",
-      "Marc Morissette",
-    ],
-    description:
-      "Panel discussion on AI's impact on the animation and VFX industry",
-    categories: ["ai", "animation"],
-    tags: ["ai", "tippett", "stop motion", "industry"],
-  },
-  {
-    id: 18,
-    title:
-      "A Minecraft Movie: How the Virtual Art Department Enabled Real-Time Collaboration with Unreal Engine",
-    type: "talk",
-    date: "2025-10-14",
-    time: "16:30-17:30",
-    location: "MEZZANINO",
-    speakers: ["Talia Finlayson"],
-    description:
-      "Case study on virtual art department workflows using Unreal Engine",
-    categories: ["production", "technology"],
-    tags: ["minecraft", "unreal engine", "virtual art department", "realtime"],
-  },
-  {
-    id: 19,
-    title:
-      "Stitching It Together: Embracing Chaos in Crafting VFX for Live-Action Lilo & Stitch",
-    type: "talk",
-    date: "2025-10-15",
-    time: "09:00-10:00",
-    location: "FUCINE",
-    speakers: ["Craig Hammack"],
-    description:
-      "VFX challenges and solutions for the live-action Lilo & Stitch adaptation",
-    categories: ["vfx"],
-    tags: ["lilo stitch", "live action", "ilm", "character animation"],
-  },
-  {
-    id: 20,
-    title: "Fantastic Four: First Steps",
-    type: "talk",
-    date: "2025-10-15",
-    time: "10:15-11:15",
-    location: "FUCINE",
-    speakers: ["Daniele Bigi"],
-    description: "VFX breakdown of Fantastic Four: First Steps from ILM",
-    categories: ["vfx"],
-    tags: ["fantastic four", "marvel", "ilm", "superhero"],
-  },
-  {
-    id: 21,
-    title: "The Splat Frontier: Experimenting with 3D Gaussian Splatting",
-    type: "talk",
-    date: "2025-10-15",
-    time: "10:15-11:15",
-    location: "BINARIO3",
-    speakers: ["Eloi Champagne"],
-    description:
-      "Exploring cutting-edge 3D Gaussian Splatting techniques and applications",
-    categories: ["technology", "rendering"],
-    tags: ["gaussian splatting", "3d", "nfb", "innovation"],
-  },
-  {
-    id: 22,
-    title: "Capturing the Human Essence: Advances in 3D & 4D Scanning",
-    type: "talk",
-    date: "2025-10-15",
-    time: "11:30-12:30",
-    location: "BINARIO3",
-    speakers: ["Jingyi Zhang"],
-    description:
-      "Latest advances in human capture technology for digital humans",
-    categories: ["technology", "vfx"],
-    tags: ["scanning", "digital humans", "3d", "4d", "capture"],
-  },
-  {
-    id: 23,
-    title: "Advancing Visualization with Gaussian Splats in Feature Film",
-    type: "talk",
-    date: "2025-10-15",
-    time: "12:45-13:45",
-    location: "MEZZANINO",
-    speakers: ["Pawl Fulker"],
-    description:
-      "Application of Gaussian Splatting in feature film visualization workflows",
-    categories: ["technology", "vfx"],
-    tags: ["gaussian splatting", "visualization", "feature film", "previz"],
-  },
-  {
-    id: 24,
-    title: "Caws & Effects: Wednesday Season 2",
-    type: "talk",
-    date: "2025-10-15",
-    time: "13:30-14:30",
-    location: "FUCINE",
-    speakers: ["Kevin Buessecker", "Jethro Au"],
-    description:
-      "VFX breakdown of Wednesday Season 2 featuring Rocket Science VFX work",
-    categories: ["vfx"],
-    tags: ["wednesday", "netflix", "vfx", "tv series"],
-  },
-  {
-    id: 25,
-    title:
-      "Small but Mighty: Getting Things Done with the Latest Tech, Tools & Small Teams",
-    type: "panel",
-    date: "2025-10-15",
-    time: "14:00-15:00",
-    location: "MEZZANINO",
-    speakers: ["Andreas Maaninka", "John Canning", "Fulvio Sestito"],
-    description:
-      "Panel on leveraging new technology for efficient small team workflows",
-    categories: ["technology", "production"],
-    tags: ["small teams", "efficiency", "tools", "workflow"],
-  },
-  {
-    id: 26,
-    title: "Behind the Wheel of F1's Invisible VFX",
-    type: "talk",
-    date: "2025-10-15",
-    time: "14:45-15:45",
-    location: "FUCINE",
-    speakers: ["Ryan Tudhope"],
-    description: "Hidden VFX work in Formula 1 movie production at Framestore",
-    categories: ["vfx"],
-    tags: ["f1", "invisible vfx", "framestore", "racing"],
-  },
-  {
-    id: 27,
-    title: "From Location to Virtual Set: From Call Time to Render Time",
-    type: "talk",
-    date: "2025-10-15",
-    time: "15:15-16:15",
-    location: "BINARIO3",
-    speakers: ["Andreas Maaninka"],
-    description:
-      "Transition from traditional filming to virtual production workflows",
-    categories: ["production", "technology"],
-    tags: ["virtual production", "sets", "workflow", "filming"],
-  },
-  {
-    id: 28,
-    title: "Creating the Spaceport Environment for Dune: Prophecy",
-    type: "talk",
-    date: "2025-10-15",
-    time: "16:30-17:30",
-    location: "BINARIO3",
-    speakers: ["Apollonia Hartmann", "David Anastacio"],
-    description: "Environment creation and VFX work for Dune: Prophecy",
-    categories: ["vfx", "production"],
-    tags: ["dune", "environment", "accenture song", "hbo"],
-  },
-  {
-    id: 29,
-    title: "When Worlds Collide: Bridging the Grid and Reality in TRON: Ares",
-    type: "talk",
-    date: "2025-10-15",
-    time: "18:30-19:30",
-    location: "FUCINE",
-    speakers: ["David Seager"],
-    description:
-      "VFX production challenges in creating the TRON: Ares digital world",
-    categories: ["vfx"],
-    tags: ["tron", "digital world", "ilm", "visual effects"],
-  },
-  {
-    id: 30,
-    title: "Elio",
-    type: "talk",
-    date: "2025-10-16",
-    time: "09:00-10:00",
-    location: "FUCINE",
-    speakers: ["Domee Shi", "Madeline Sharafian"],
-    description: "Behind the scenes of Pixar's Elio animation and production",
-    categories: ["animation"],
-    tags: ["pixar", "elio", "animation", "production"],
-  },
-  {
-    id: 31,
-    title: "In Your Dreams (Premiere Talk)",
-    type: "talk",
-    date: "2025-10-16",
-    time: "10:15-11:15",
-    location: "FUCINE",
-    speakers: ["Sacha Kapijimpanga", "Nicky Lavender", "Alex Woo"],
-    description:
-      "Premiere presentation of Sony Pictures Imageworks' In Your Dreams",
-    categories: ["animation", "vfx"],
-    tags: ["sony imageworks", "animation", "dreams", "production"],
-  },
-  {
-    id: 32,
-    title: "Creating Worlds: The Art and Design of Avatar",
-    type: "talk",
-    date: "2025-10-16",
-    time: "11:30-12:30",
-    location: "FUCINE",
-    speakers: ["Dylan Cole"],
-    description:
-      "Production design insights from Avatar: The Way of Water & Avatar: Fire and Ash",
-    categories: ["vfx", "production"],
-    tags: ["avatar", "production design", "world building", "cameron"],
-  },
-  {
-    id: 33,
-    title: "To Infinity… and RenderMan XPU!",
-    type: "talk",
-    date: "2025-10-16",
-    time: "12:45-13:45",
-    location: "FUCINE",
-    speakers: ["Dylan Sisson"],
-    description: "Technical presentation on RenderMan XPU rendering technology",
-    categories: ["rendering", "technology"],
-    tags: ["renderman", "xpu", "pixar", "rendering"],
-  },
-  {
-    id: 34,
-    title:
-      "The Rings of Power Season 2: Bringing life to Middle Earth Creatures",
-    type: "talk",
-    date: "2025-10-16",
-    time: "12:45-13:45",
-    location: "BINARIO3",
-    speakers: ["Ara Khanikian"],
-    description:
-      "Creature animation and VFX work for The Rings of Power Season 2",
-    categories: ["vfx", "animation"],
-    tags: ["rings of power", "creatures", "rodeo fx", "middle earth"],
-  },
-  {
-    id: 35,
-    title: "What Remains in the Ruins: The VFX of 'The Last of Us - Season 2'",
-    type: "talk",
-    date: "2025-10-16",
-    time: "14:00-15:00",
-    location: "TECA B",
-    speakers: ["Melaina Mace", "Roberto Rodricks"],
-    description:
-      "VFX breakdown of The Last of Us Season 2 apocalyptic environments",
-    categories: ["vfx"],
-    tags: ["last of us", "dneg", "apocalyptic", "environments"],
-  },
-  {
-    id: 36,
-    title:
-      "The Future of Content Security: Protecting Creative IP and Stopping Hackers with Superfile",
-    type: "talk",
-    date: "2025-10-16",
-    time: "14:45-15:45",
-    location: "FUCINE",
-    speakers: ["Shane Valdez", "Jake Maymudes"],
-    description:
-      "Technical solutions for protecting creative content and intellectual property",
-    categories: ["technology", "production"],
-    tags: ["security", "ip protection", "superfile", "cybersecurity"],
-  },
-  {
-    id: 37,
-    title: "The VFX of the The Penguin (HBO)",
-    type: "talk",
-    date: "2025-10-16",
-    time: "16:00-17:00",
-    location: "FUCINE",
-    speakers: ["Johnny Han", "Goran Pavles", "Eugene Bondar"],
-    description: "VFX production breakdown of The Penguin HBO series",
-    categories: ["vfx"],
-    tags: ["penguin", "hbo", "gotham", "vfx", "tv series"],
-  },
-  {
-    id: 38,
-    title:
-      '"Sinners" VFX: Photochemical Soul, Digital Craft: Twinned & Twisted Southern Blues Gangster Western',
-    type: "talk",
-    date: "2025-10-16",
-    time: "17:15-18:15",
-    location: "FUCINE",
-    speakers: [
-      "Michael Ralla",
-      "Guido Wolter",
-      "Espen Nordahl",
-      "Antoine Moulineau",
-    ],
-    description:
-      "Complex VFX work blending practical and digital techniques for Sinners",
-    categories: ["vfx"],
-    tags: ["sinners", "photochemical", "digital craft", "western"],
-  },
-  {
-    id: 39,
-    title:
-      "The Co-Pilots of Creativity: From Concept to Screen, Unlocking Potential Through AI & Technology",
-    type: "masterclass",
-    date: "2025-10-16",
-    time: "17:45-19:15",
-    location: "BINARIO3",
-    speakers: ["Setareh Samandari", "Habib Zargarpour"],
-    description: "Extended masterclass on AI-assisted creative workflows",
-    categories: ["ai", "technology"],
-    tags: ["ai", "creativity", "workflow", "interdimensional vfx"],
-  },
-  {
-    id: 40,
-    title: "How to Train Your Dragon",
-    type: "talk",
-    date: "2025-10-17",
-    time: "09:00-10:00",
-    location: "FUCINE",
-    speakers: ["Christian Mänz", "Dean DeBlois", "Glen McIntosh"],
-    description:
-      "VFX and animation production of How to Train Your Dragon at Framestore",
-    categories: ["animation", "vfx"],
-    tags: ["how to train dragon", "framestore", "dreamworks", "animation"],
-  },
-  {
-    id: 41,
-    title: "The Cat in the Hat (2026) (Premiere Talk)",
-    type: "talk",
-    date: "2025-10-17",
-    time: "10:15-11:15",
-    location: "FUCINE",
-    speakers: ["Alessandro Carloni"],
-    description:
-      "Premiere presentation of Warner Bros Animation's Cat in the Hat 2026",
-    categories: ["animation"],
-    tags: ["cat in hat", "warner bros", "animation", "2026"],
-  },
-  {
-    id: 42,
-    title: "Jurassic World: Rebirth",
-    type: "talk",
-    date: "2025-10-17",
-    time: "11:30-12:30",
-    location: "FUCINE",
-    speakers: ["David Vickery"],
-    description: "VFX production insights from Jurassic World: Rebirth at ILM",
-    categories: ["vfx"],
-    tags: ["jurassic world", "dinosaurs", "ilm", "creatures"],
-  },
-  {
-    id: 43,
-    title:
-      "Directing GenAI Tools for Real World Productions: Fashion Industry Video Case Study",
-    type: "talk",
-    date: "2025-10-17",
-    time: "11:30-12:30",
-    location: "BINARIO3",
-    speakers: ["Srikanth Srinivasan"],
-    description:
-      "Practical application of generative AI in fashion industry video production",
-    categories: ["ai", "production"],
-    tags: ["generative ai", "fashion", "production", "case study"],
-  },
-  {
-    id: 44,
-    title: "Interactive Samurai Cinema in Ghost of Yotei",
-    type: "talk",
-    date: "2025-10-17",
-    time: "12:45-13:45",
-    location: "FUCINE",
-    speakers: ["Nathan Fox"],
-    description:
-      "Creative direction and technical innovation in Ghost of Yotei game cinematics",
-    categories: ["game", "technology"],
-    tags: ["ghost of yotei", "sucker punch", "cinematics", "samurai"],
-  },
-  {
-    id: 45,
-    title: "Creator's Tools: Innovation at Eyeline",
-    type: "talk",
-    date: "2025-10-17",
-    time: "12:45-13:45",
-    location: "BINARIO3",
-    speakers: ["Kevin Baillie"],
-    description: "Innovative tools and workflows developed at Eyeline Studios",
-    categories: ["technology", "production"],
-    tags: ["eyeline", "tools", "innovation", "workflow"],
-  },
-  {
-    id: 46,
-    title: "My 50 Years with ILM",
-    type: "talk",
-    date: "2025-10-17",
-    time: "14:00-15:00",
-    location: "FUCINE",
-    speakers: ["Hal Hickel"],
-    description:
-      "Career retrospective and industry insights from 50 years at ILM",
-    categories: ["vfx", "animation"],
-    tags: ["ilm", "career", "history", "animation"],
-  },
-  {
-    id: 47,
-    title: "The Sandman: Crafting the Dreaming",
-    type: "talk",
-    date: "2025-10-17",
-    time: "14:00-15:00",
-    location: "BINARIO3",
-    speakers: ["Martin Pelletier"],
-    description:
-      "VFX work creating the dream world environments for The Sandman",
-    categories: ["vfx"],
-    tags: ["sandman", "rodeo fx", "dreaming", "environments"],
-  },
-  {
-    id: 48,
-    title:
-      "Superman: Building Superdog, Crafting Crystalline Fortress of Solitude, Pioneering 4D Gaussian Splat",
-    type: "talk",
-    date: "2025-10-17",
-    time: "15:15-16:15",
-    location: "FUCINE",
-    speakers: ["Stéphane Nazé"],
-    description:
-      "Cutting-edge VFX techniques for Superman including 4D Gaussian Splatting",
-    categories: ["vfx", "technology"],
-    tags: ["superman", "gaussian splatting", "framestore", "fortress"],
-  },
-  {
-    id: 49,
-    title: "The Filmmaker and the Machine: AI, Cinema, and Real-Time 3D Worlds",
-    type: "talk",
-    date: "2025-10-17",
-    time: "15:15-16:15",
-    location: "BINARIO3",
-    speakers: ["Dimitri Vallein"],
-    description:
-      "Exploration of AI's role in creating real-time 3D cinematic experiences",
-    categories: ["ai", "technology"],
-    tags: ["ai", "cinema", "realtime", "3d worlds"],
-  },
-  {
-    id: 50,
-    title: "Making It (Look) Big in Movies",
-    type: "talk",
-    date: "2025-10-17",
-    time: "16:30-17:30",
-    location: "FUCINE",
-    speakers: ["Ian Hunter"],
-    description:
-      "Miniature and practical effects techniques from New Deal Studios",
-    categories: ["vfx", "production"],
-    tags: ["miniatures", "practical effects", "new deal studios", "scale"],
-  },
-  {
-    id: 51,
-    title: "Deep-Dive Procreate",
-    type: "workshop",
-    date: "2025-10-12",
-    time: "09:00-13:00",
-    location: "ITS 4",
-    speakers: ["Kyle T. Webster"],
-    description:
-      "4-Hour Workshop on advanced Procreate techniques and digital illustration",
-    categories: ["art", "technology"],
-    tags: ["procreate", "digital art", "illustration", "drawing"],
-  },
-  {
-    id: 52,
-    title: "Creating the World of Game of Thrones: Environment Concept Art",
-    type: "workshop",
-    date: "2025-10-12",
-    time: "09:00-16:30",
-    location: "ITS 8",
-    speakers: ["Kieran Belshaw"],
-    description:
-      "Environment concept art workshop based on Game of Thrones world-building",
-    categories: ["art", "concept"],
-    tags: ["game of thrones", "concept art", "environment", "fantasy"],
-  },
-  {
-    id: 53,
-    title: "From Zero to Hero",
-    type: "workshop",
-    date: "2025-10-12",
-    time: "09:00-16:30",
-    location: "ITS 9",
-    speakers: ["Gennaro Esposito"],
-    description: "Comprehensive workshop for beginners in 3D and digital arts",
-    categories: ["education", "3d"],
-    tags: ["beginner", "3d", "digital shark", "training"],
-  },
-  {
-    id: 54,
-    title: "Sketching! Create the Line Before The Code",
-    type: "workshop",
-    date: "2025-10-12",
-    time: "09:00-16:30",
-    location: "ITS 12",
-    speakers: ["Michael Coldewey"],
-    description:
-      "Foundation workshop on concept art, drawing and design principles",
-    categories: ["art", "concept"],
-    tags: ["sketching", "concept art", "drawing", "design"],
-  },
-  {
-    id: 55,
-    title:
-      "Designing for the Mind: A Dive into Product Psychology in UX and Product Design",
-    type: "workshop",
-    date: "2025-10-12",
-    time: "09:00-13:00",
-    location: "ITS 14",
-    speakers: ["Riccardo Russiano"],
-    description:
-      "UX and product design workshop focusing on psychological principles",
-    categories: ["design", "ux"],
-    tags: ["ux design", "psychology", "product design", "user experience"],
-  },
-  {
-    id: 56,
-    title: "How to Make a Creature: Mastering Secondary and Tertiary Details",
-    type: "workshop",
-    date: "2025-10-12",
-    time: "09:00-16:30",
-    location: "ITS 15",
-    speakers: ["Andrea Salvatori"],
-    description:
-      "Advanced creature creation workshop focusing on detailed modeling",
-    categories: ["3d", "vfx"],
-    tags: ["creature", "modeling", "details", "3d art"],
-  },
-  {
-    id: 57,
-    title: "Showreel Clinic: Bring Yours to Get Feedback",
-    type: "clinic",
-    date: "2025-10-12",
-    time: "09:00-10:00",
-    location: "SALA POLIFUNZIONALE",
-    speakers: ["Saint Walker"],
-    description: "Interactive session for showreel review and feedback",
-    categories: ["career", "education"],
-    tags: ["showreel", "portfolio", "feedback", "career"],
-  },
-  {
-    id: 58,
-    title: "Portfolio Reviews: 3D Animation, 3D Generalists",
-    type: "portfolio",
-    date: "2025-10-12",
-    time: "10:15-11:15",
-    location: "SALA POLIFUNZIONALE",
-    speakers: ["Brenda Ximena Roldan Romero", "Ethan Francis"],
-    description:
-      "Portfolio review session for 3D animation and generalist work",
-    categories: ["career", "animation"],
-    tags: ["portfolio", "3d animation", "dneg", "career advice"],
-  },
-  {
-    id: 59,
-    title: "Evolve from Seeing to Vision, from Watching to Storytelling",
-    type: "workshop",
-    date: "2025-10-12",
-    time: "10:30-17:30",
-    location: "ITS 3",
-    speakers: ["Asa Mathat"],
-    description:
-      "Photography and visual storytelling workshop by award-winning photographer",
-    categories: ["photography", "art"],
-    tags: ["photography", "storytelling", "vision", "composition"],
-  },
-  {
-    id: 60,
-    title: "Making the Most of Your Showreel in an Age of AI",
-    type: "talk",
-    date: "2025-10-12",
-    time: "11:15-12:15",
-    location: "ITS TEATRO",
-    speakers: ["Saint Walker"],
-    description: "Adapting showreels and portfolios for the AI era",
-    categories: ["career", "ai"],
-    tags: ["showreel", "ai", "career", "portfolio"],
-  },
-  {
-    id: 61,
-    title: "Animating with Purpose: Finding Your Voice in Big Productions",
-    type: "talk",
-    date: "2025-10-12",
-    time: "11:30-12:30",
-    location: "SALA POLIFUNZIONALE",
-    speakers: ["Brenda Ximena Roldan Romero"],
-    description:
-      "Finding your artistic voice while working on large animation productions",
-    categories: ["animation", "career"],
-    tags: ["animation", "artistic voice", "dneg", "production"],
-  },
-  {
-    id: 62,
-    title: "Portfolio Reviews",
-    type: "portfolio",
-    date: "2025-10-12",
-    time: "12:30-13:30",
-    location: "ITS TEATRO",
-    speakers: ["Saint Walker"],
-    description: "General portfolio review session",
-    categories: ["career", "education"],
-    tags: ["portfolio", "review", "feedback"],
-  },
-  {
-    id: 63,
-    title: "The Evolving VFX Landscape",
-    type: "panel",
-    date: "2025-10-12",
-    time: "12:45-13:45",
-    location: "SALA POLIFUNZIONALE",
-    speakers: ["Mara Froehlich", "Hayley Miller", "Heike Kluger"],
-    description:
-      "Panel discussion on current trends and future of the VFX industry",
-    categories: ["vfx", "industry"],
-    tags: ["vfx industry", "trends", "future", "business"],
-  },
-  {
-    id: 64,
-    title: "Using Reference with Purpose – From Footage to Performance",
-    type: "workshop",
-    date: "2025-10-12",
-    time: "13:15-16:15",
-    location: "ITS 4",
-    speakers: ["Alexis Wanneroy"],
-    description:
-      "Animation workshop on using reference footage for character performance",
-    categories: ["animation"],
-    tags: ["animation", "reference", "performance", "fortiche"],
-  },
-  {
-    id: 65,
-    title: "Shaping Brand Stories, VFX in Advertising",
-    type: "talk",
-    date: "2025-10-12",
-    time: "14:00-15:00",
-    location: "SALA POLIFUNZIONALE",
-    speakers: ["Kate Gabriel"],
-    description: "VFX applications in advertising and brand storytelling",
-    categories: ["vfx", "advertising"],
-    tags: ["advertising", "brand", "commercial vfx"],
-  },
-  {
-    id: 66,
-    title: "The Purpose and Principles of Architecture",
-    type: "workshop",
-    date: "2025-10-12",
-    time: "15:15-16:15",
-    location: "SALA POLIFUNZIONALE",
-    speakers: ["Matthias Buehler"],
-    description: "Architecture principles applied to digital world building",
-    categories: ["architecture", "design"],
-    tags: ["architecture", "design principles", "world building"],
-  },
-  {
-    id: 67,
-    title: "Bridging the Gap between Education and Industry",
-    type: "talk",
-    date: "2025-10-12",
-    time: "15:30-16:30",
-    location: "ITS 14",
-    speakers: ["Morten Thorning"],
-    description: "Connecting educational programs with industry needs",
-    categories: ["education", "career"],
-    tags: ["education", "industry", "career", "training"],
-  },
-  {
-    id: 68,
-    title: "Ask Me Anything About Character Animation for VFX (2025)",
-    type: "ama",
-    date: "2025-10-12",
-    time: "16:00-17:00",
-    location: "ITS TEATRO",
-    speakers: ["Hal Hickel"],
-    description: "Q&A session with ILM's Oscar-winning animation director",
-    categories: ["animation", "vfx"],
-    tags: ["character animation", "ilm", "oscar winner", "q&a"],
-  },
-  {
-    id: 69,
-    title: "From Animation to Reality: Bringing an animated character to life!",
-    type: "talk",
-    date: "2025-10-12",
-    time: "16:30-17:30",
-    location: "SALA POLIFUNZIONALE",
-    speakers: ["Alexis Wanneroy", "Stuart Ward"],
-    description: "Process of translating animated characters to live action",
-    categories: ["animation", "vfx"],
-    tags: ["character animation", "live action", "translation"],
-  },
-  {
-    id: 70,
-    title: "Beyond VFX: Hidden Career Gems",
-    type: "ama",
-    date: "2025-10-12",
-    time: "17:15-18:15",
-    location: "ITS TEATRO",
-    speakers: [
-      "Kate Gabriel",
-      "Beata Parczewska",
-      "Boyan Georgiev",
-      "Agata M. Soccini",
-      "Eva Krpanov",
-    ],
-    description:
-      "Exploring alternative career paths in the digital arts industry",
-    categories: ["career"],
-    tags: ["career paths", "alternative careers", "industry"],
-  },
-  {
-    id: 71,
-    title: "Career Advice: My First Job and What I Learned",
-    type: "masterclass",
-    date: "2025-10-12",
-    time: "17:45-18:45",
-    location: "SALA POLIFUNZIONALE",
-    speakers: [
-      "Hal Hickel",
-      "Saint Walker",
-      "Eloi Champagne",
-      "Jan-Bart van Beek",
-      "Alexis Wanneroy",
-    ],
-    description:
-      "Industry veterans share their early career experiences and lessons learned",
-    categories: ["career"],
-    tags: ["career advice", "first job", "industry veterans"],
-  },
-  {
-    id: 72,
-    title: "More Than Pixels: A Friendship's Guide to a Long Career in VFX",
-    type: "ama",
-    date: "2025-10-12",
-    time: "18:30-19:30",
-    location: "ITS TEATRO",
-    speakers: ["Filippo Robino", "Roberto Rodricks"],
-    description: "Long-term career perspective in VFX from industry friends",
-    categories: ["career", "vfx"],
-    tags: ["career longevity", "vfx career", "friendship", "alps studios"],
-  },
-  {
-    id: 73,
-    title:
-      "Acting Beats, Accents & Facial Connection: Making Performance Feel Real",
-    type: "workshop",
-    date: "2025-10-13",
-    time: "09:00-12:00",
-    location: "ITS 3",
-    speakers: ["Alexis Wanneroy"],
-    description:
-      "Advanced character animation workshop focusing on realistic performance",
-    categories: ["animation"],
-    tags: ["character animation", "performance", "facial animation", "acting"],
-  },
-  {
-    id: 74,
-    title: "Knock Knock. Who's There?",
-    type: "workshop",
-    date: "2025-10-13",
-    time: "09:00-16:30",
-    location: "ITS 4",
-    speakers: ["Kris Pearn"],
-    description: "Animation workshop by Sony Pictures Animation director",
-    categories: ["animation"],
-    tags: ["animation", "sony pictures", "director", "storytelling"],
-  },
-  {
-    id: 75,
-    title: "Concept Art for Games",
-    type: "workshop",
-    date: "2025-10-13",
-    time: "09:00-16:30",
-    location: "ITS 8",
-    speakers: ["Michael Coldewey"],
-    description:
-      "Game concept art workshop covering design principles and workflows",
-    categories: ["art", "game"],
-    tags: ["concept art", "games", "design", "workflow"],
-  },
-  {
-    id: 76,
-    title: "3D Modeling/Texturing in Maya and Substance Painter",
-    type: "workshop",
-    date: "2025-10-13",
-    time: "09:00-12:00",
-    location: "ITS 10",
-    speakers: ["Gennaro Esposito"],
-    description: "Technical workshop on 3D modeling and texturing workflows",
-    categories: ["3d", "technology"],
-    tags: ["3d modeling", "texturing", "maya", "substance painter"],
-  },
-  {
-    id: 77,
-    title: "Observation and Study for Advancing Your Animation! Part 1",
-    type: "workshop",
-    date: "2025-10-13",
-    time: "09:00-11:00",
-    location: "SALA POLIFUNZIONALE",
-    speakers: ["Ted Ty"],
-    description:
-      "Animation fundamentals workshop part 1 by DNEG's head of character animation",
-    categories: ["animation"],
-    tags: [
-      "animation fundamentals",
-      "observation",
-      "dneg",
-      "character animation",
-    ],
-  },
-  {
-    id: 78,
-    title: "Observation and Study for Advancing Your Animation! Part 2",
-    type: "workshop",
-    date: "2025-10-13",
-    time: "11:00-13:00",
-    location: "SALA POLIFUNZIONALE",
-    speakers: ["Ted Ty"],
-    description: "Animation fundamentals workshop part 2",
-    categories: ["animation"],
-    tags: ["animation fundamentals", "study", "dneg", "character animation"],
-  },
-  {
-    id: 79,
-    title:
-      "From Phoenician Scheme to Grand Budapest Hotel: Designing Miniature Sets for Wes Anderson Films",
-    type: "masterclass",
-    date: "2025-10-13",
-    time: "13:15-15:15",
-    location: "SALA POLIFUNZIONALE",
-    speakers: ["Simon Weisse"],
-    description: "Masterclass on miniature set design for Wes Anderson films",
-    categories: ["production", "art"],
-    tags: ["miniatures", "wes anderson", "set design", "practical effects"],
-  },
-  {
-    id: 80,
-    title: "Ask Me Anything About Animation",
-    type: "ama",
-    date: "2025-10-13",
-    time: "14:30-15:30",
-    location: "ITS 3",
-    speakers: ["Ted Ty"],
-    description:
-      "Q&A session about animation with DNEG's head of character animation",
-    categories: ["animation"],
-    tags: ["animation", "q&a", "dneg", "character animation"],
-  },
-  {
-    id: 81,
-    title:
-      "Creative Careers Unfiltered: Motivation, Mentorship & Meaningful Networking",
-    type: "ama",
-    date: "2025-10-13",
-    time: "14:30-15:30",
-    location: "ITS 10",
-    speakers: ["Brenda Ximena Roldan Romero", "Ethan Francis"],
-    description:
-      "Career development discussion focusing on networking and mentorship",
-    categories: ["career"],
-    tags: ["career development", "networking", "mentorship", "motivation"],
-  },
-  {
-    id: 82,
-    title: "Portfolio Reviews: Concept Art",
-    type: "portfolio",
-    date: "2025-10-13",
-    time: "15:15-16:15",
-    location: "ITS 15",
-    speakers: ["Kieran Belshaw"],
-    description: "Portfolio review session for concept artists",
-    categories: ["art", "career"],
-    tags: ["concept art", "portfolio", "review", "feedback"],
-  },
-  {
-    id: 83,
-    title: "AMA: Nonno Edition. Doubts and Hopes for a Future Self",
-    type: "ama",
-    date: "2025-10-13",
-    time: "15:30-16:30",
-    location: "SALA POLIFUNZIONALE",
-    speakers: ["Luca Prasso"],
-    description:
-      "Reflective discussion on career progression and future aspirations",
-    categories: ["career"],
-    tags: ["career reflection", "google", "future", "personal growth"],
-  },
-  {
-    id: 84,
-    title: "Portfolio Reviews: Tips and Tricks",
-    type: "portfolio",
-    date: "2025-10-13",
-    time: "15:45-16:45",
-    location: "ITS 3",
-    speakers: ["Brenda Ximena Roldan Romero", "Ethan Francis"],
-    description: "Portfolio improvement tips and industry insights",
-    categories: ["career"],
-    tags: ["portfolio tips", "industry insights", "career advice"],
-  },
-  {
-    id: 85,
-    title:
-      "Ask Me Anything: Bringing Creatures and Characters to Life in Production",
-    type: "ama",
-    date: "2025-10-13",
-    time: "15:45-16:45",
-    location: "ITS 10",
-    speakers: ["Andrea Salvatori"],
-    description: "Q&A about creature and character creation in production",
-    categories: ["3d", "vfx"],
-    tags: ["creature creation", "character creation", "production"],
-  },
-  {
-    id: 86,
-    title: "How It Started, How Its Going",
-    type: "ama",
-    date: "2025-10-13",
-    time: "16:45-17:45",
-    location: "SALA POLIFUNZIONALE",
-    speakers: [
-      "Dylan Sisson",
-      "Ted Ty",
-      "Kyle T. Webster",
-      "Luca Prasso",
-      "Kris Pearn",
-    ],
-    description:
-      "Panel of industry professionals sharing their career journeys",
-    categories: ["career"],
-    tags: ["career journey", "pixar", "procreate", "google", "sony animation"],
-  },
-  {
-    id: 87,
-    title: "KPop Demon Hunters",
-    type: "talk",
-    date: "2025-10-14",
-    time: "11:30-12:30",
-    location: "FUCINE",
-    speakers: ["Maggie Kang", "Chris Appelhans"],
-    description:
-      "Behind the scenes of Netflix's KPop Demon Hunters animated series",
-    categories: ["animation"],
-    tags: ["netflix", "kpop", "animation", "series"],
-  },
-  {
-    id: 88,
-    title:
-      "Creating a Family-Friendly Apocalypse: The Development of Lego Horizon Adventures",
-    type: "talk",
-    date: "2025-10-14",
-    time: "12:45-13:45",
-    location: "FUCINE",
-    speakers: ["Jan-Bart van Beek", "Jochen Willemsen"],
-    description:
-      "Game development insights from Guerrilla Games' Lego Horizon Adventures",
-    categories: ["game", "animation"],
-    tags: ["lego", "horizon", "guerrilla games", "family friendly"],
-  },
-  {
-    id: 89,
-    title: "Guillermo del Toro's Frankenstein",
-    type: "talk",
-    date: "2025-10-14",
-    time: "12:45-13:45",
-    location: "BINARIO3",
-    speakers: ["Dan Laustsen"],
-    description:
-      "Cinematography insights from Guillermo del Toro's Frankenstein",
-    categories: ["cinematography"],
-    tags: ["del toro", "frankenstein", "cinematography", "horror"],
-  },
-  {
-    id: 90,
-    title: "Procreate Demo: Procreate Dreams 2",
-    type: "masterclass",
-    date: "2025-10-14",
-    time: "14:00-15:00",
-    location: "BINARIO3",
-    speakers: ["Kyle T. Webster"],
-    description:
-      "Live demonstration of Procreate Dreams 2 features and workflows",
-    categories: ["art", "technology"],
-    tags: ["procreate", "animation", "digital art", "demo"],
-  },
-  {
-    id: 91,
-    title: "White Rabbit: The Art of Audience Engagement in the Age of AI",
-    type: "talk",
-    date: "2025-10-14",
-    time: "14:00-15:00",
-    location: "MEZZANINO",
-    speakers: ["Maciej Kuciara"],
-    description:
-      "Interactive storytelling and audience engagement in AI-driven content",
-    categories: ["ai", "storytelling"],
-    tags: ["white rabbit", "audience engagement", "ai", "interactive"],
-  },
-  {
-    id: 92,
-    title: "Cinema.3: A New Era of Film",
-    type: "panel",
-    date: "2025-10-14",
-    time: "15:00-16:00",
-    location: "BINARIO3",
-    speakers: [
-      "Giaime Alonge",
-      "Giulia Carluccio",
-      "Francesco Casetti",
-      "Simone Natale",
-      "Gabriella Taddeo",
-      "Habib Zargarpour",
-    ],
-    description:
-      "Academic panel on the future of cinema and digital storytelling",
-    categories: ["cinema", "technology"],
-    tags: ["cinema future", "academic", "digital storytelling", "university"],
-  },
-  {
-    id: 93,
-    title: "The Artist in Command: Taking Creative Control with Generative AI",
-    type: "talk",
-    date: "2025-10-14",
-    time: "15:15-16:15",
-    location: "MEZZANINO",
-    speakers: [],
-    description: "Empowering artists with generative AI tools and techniques",
-    categories: ["ai", "art"],
-    tags: ["generative ai", "artist control", "creative tools"],
-  },
-  {
-    id: 94,
-    title: "The Future of Storytelling 2025",
-    type: "panel",
-    date: "2025-10-14",
-    time: "17:45-18:45",
-    location: "FUCINE",
-    speakers: [
-      "Pierre Perifel",
-      "Camille Balsamo-Gillis",
-      "Alex Woo",
-      "Maggie Kang",
-      "Chris Appelhans",
-      "Kris Pearn",
-    ],
-    description: "Industry leaders discuss the future of animated storytelling",
-    categories: ["storytelling", "animation"],
-    tags: ["future", "storytelling", "animation", "dreamworks", "netflix"],
-  },
-  {
-    id: 95,
-    title:
-      "Artistic Integrity and Quieting the Noise: Navigating Emotion and Digital Storytelling",
-    type: "talk",
-    date: "2025-10-14",
-    time: "17:45-18:45",
-    location: "MEZZANINO",
-    speakers: ["Arissa Ackerman"],
-    description: "Maintaining artistic vision in digital storytelling mediums",
-    categories: ["art", "storytelling"],
-    tags: ["artistic integrity", "digital storytelling", "emotion", "scad"],
-  },
-  {
-    id: 96,
-    title:
-      "The Case of the Missing Afikomen: An Interactive Detective Story with Ctrl Movie",
-    type: "talk",
-    date: "2025-10-15",
-    time: "09:00-10:00",
-    location: "BINARIO3",
-    speakers: ["Zane Swift"],
-    description:
-      "Interactive storytelling techniques and audience participation",
-    categories: ["storytelling", "technology"],
-    tags: ["interactive", "detective", "ctrl movie", "audience participation"],
-  },
-  {
-    id: 97,
-    title: "Visual Poetry: The Art of Japanese Cinema Posters",
-    type: "talk",
-    date: "2025-10-15",
-    time: "09:00-10:00",
-    location: "MEZZANINO",
-    speakers: ["Jeff Dillinger"],
-    description:
-      "Design principles and cultural significance of Japanese film posters",
-    categories: ["art", "design"],
-    tags: ["poster design", "japanese cinema", "visual design", "cultural art"],
-  },
-  {
-    id: 98,
-    title:
-      "Claynosaurz: Rise of the Interactive Franchises: Why the Future Belongs to Creators",
-    type: "talk",
-    date: "2025-10-15",
-    time: "10:15-11:15",
-    location: "MEZZANINO",
-    speakers: ["Nicholas Cabana"],
-    description: "Building interactive franchises and creator-driven content",
-    categories: ["business", "creative"],
-    tags: ["claynosaurz", "interactive", "franchise", "creators"],
-  },
-  {
-    id: 99,
-    title: "Short Films, Epic Ambitions",
-    type: "talk",
-    date: "2025-10-15",
-    time: "11:30-12:30",
-    location: "FUCINE",
-    speakers: ["Chris Lavis", "Eric Pouliot"],
-    description: "Creating ambitious short films with limited resources",
-    categories: ["production", "animation"],
-    tags: ["short films", "nfb", "animation", "independent"],
-  },
-  {
-    id: 100,
-    title: "Is VFX a Sustainable Business Model?",
-    type: "talk",
-    date: "2025-10-15",
-    time: "11:30-12:30",
-    location: "MEZZANINO",
-    speakers: ["Heiko Burkardsmaier"],
-    description:
-      "Business analysis of VFX industry sustainability and economics",
-    categories: ["business", "vfx"],
-    tags: ["vfx business", "sustainability", "economics", "industry analysis"],
-  },
-  {
-    id: 101,
-    title: "The VFX Behind the Emmy Award Winning Comedy: The Studio",
-    type: "talk",
-    date: "2025-10-15",
-    time: "12:45-13:15",
-    location: "FUCINE",
-    speakers: ["Jake Maymudes", "Sandro Blattner"],
-    description: "VFX work on the Emmy-winning comedy series The Studio",
-    categories: ["vfx", "comedy"],
-    tags: ["the studio", "emmy winner", "comedy vfx", "television"],
-  },
-  {
-    id: 102,
-    title: "Walking With Animators",
-    type: "talk",
-    date: "2025-10-15",
-    time: "12:45-13:45",
-    location: "BINARIO3",
-    speakers: ["Alexandre Poncet"],
-    description:
-      "Documentary exploration of animator lives and creative processes",
-    categories: ["animation", "documentary"],
-    tags: ["documentary", "animators", "creative process", "behind scenes"],
-  },
-  {
-    id: 103,
-    title:
-      "Inspiring the Next Generation of Storytellers: AI & Innovation Technology in Education",
-    type: "panel",
-    date: "2025-10-15",
-    time: "14:00-15:00",
-    location: "BINARIO3",
-    speakers: [
-      "Oleg Fryazinov",
-      "Morten Thorning",
-      "Simon Davies",
-      "Camille Jaulent",
-      "Andrea Bottino",
-      "Terrence Masson",
-      "Saint Walker",
-    ],
-    description:
-      "Educational panel on integrating AI and innovation in creative curriculum",
-    categories: ["education", "ai"],
-    tags: ["education", "ai", "innovation", "curriculum", "universities"],
-  },
-  {
-    id: 104,
-    title: "Pixels, Pressure and People: Creative Leadership in VFX",
-    type: "panel",
-    date: "2025-10-15",
-    time: "15:15-16:15",
-    location: "MEZZANINO",
-    speakers: [
-      "Filippo Robino",
-      "Claudia Marvisi",
-      "Heiko Burkardsmaier",
-      "Tracy McCreary",
-    ],
-    description: "Leadership challenges and strategies in VFX production",
-    categories: ["leadership", "vfx"],
-    tags: ["leadership", "vfx management", "production", "team management"],
-  },
-  {
-    id: 105,
-    title:
-      "Ready for Launch: Creating Fantastic Four's Miniature Ships with Cutting-Edge and Classic Techniques",
-    type: "panel",
-    date: "2025-10-15",
-    time: "16:00-17:00",
-    location: "FUCINE",
-    speakers: ["Ian Hunter", "Reid Collums", "Camille Balsamo-Gillis"],
-    description:
-      "Miniature effects work for Fantastic Four combining traditional and modern techniques",
-    categories: ["vfx", "production"],
-    tags: [
-      "fantastic four",
-      "miniatures",
-      "practical effects",
-      "new deal studios",
-    ],
-  },
-  {
-    id: 106,
-    title: "The Art of Game Cinematics: The Witcher 4 Cinematic Trailer",
-    type: "talk",
-    date: "2025-10-15",
-    time: "16:30-17:30",
-    location: "MEZZANINO",
-    speakers: ["Tomek Suwalkski", "Magdalena Rudnicka"],
-    description:
-      "Behind the scenes of The Witcher 4 cinematic trailer production",
-    categories: ["game", "cinematics"],
-    tags: ["witcher 4", "cinematics", "game trailer", "platige image"],
-  },
-  {
-    id: 107,
-    title: "Stop Motion: Bring the Goods",
-    type: "panel",
-    date: "2025-10-15",
-    time: "17:15-18:15",
-    location: "FUCINE",
-    speakers: [
-      "Phil Tippett",
-      "Gary Mundell",
-      "Mark Dubeau",
-      "Tom Gibbons",
-      "Ken Rogerson",
-    ],
-    description:
-      "Panel on stop motion animation techniques and industry insights",
-    categories: ["animation"],
-    tags: [
-      "stop motion",
-      "tippett studio",
-      "traditional animation",
-      "practical",
-    ],
-  },
-  {
-    id: 108,
-    title: "Innovation and Creativity at the Service of Audiovisual Production",
-    type: "talk",
-    date: "2025-10-15",
-    time: "17:45-18:45",
-    location: "BINARIO3",
-    speakers: ["Monica Galantucci", "Giulio Campiglia"],
-    description:
-      "Innovation in audiovisual production workflows and creative processes",
-    categories: ["production", "innovation"],
-    tags: ["m74", "audiovisual", "innovation", "production"],
-  },
-  {
-    id: 109,
-    title: "Driving a Show, Success from the Art Department",
-    type: "talk",
-    date: "2025-10-15",
-    time: "17:45-18:45",
-    location: "MEZZANINO",
-    speakers: ["Javier Romero"],
-    description: "Art department leadership and its impact on show success",
-    categories: ["art", "production"],
-    tags: [
-      "art department",
-      "leadership",
-      "production management",
-      "show success",
-    ],
-  },
-  {
-    id: 110,
-    title: "Solving for Creativity: Technical Experiments at the NFB",
-    type: "talk",
-    date: "2025-10-16",
-    time: "11:30-12:30",
-    location: "BINARIO3",
-    speakers: ["Eloi Champagne"],
-    description:
-      "Experimental technical approaches to creative problems at the National Film Board",
-    categories: ["technology", "innovation"],
-    tags: ["nfb", "technical experiments", "innovation", "creative technology"],
-  },
-  {
-    id: 111,
-    title: "VFX and Animation Worldwide: A Data-Driven Look at Our Industry",
-    type: "talk",
-    date: "2025-10-16",
-    time: "11:30-12:30",
-    location: "TECA B",
-    speakers: ["Joseph Bell"],
-    description:
-      "Data analysis and trends in the global VFX and animation industry",
-    categories: ["industry", "data"],
-    tags: [
-      "industry data",
-      "global trends",
-      "vfx statistics",
-      "animation market",
-    ],
-  },
-  {
-    id: 112,
-    title: "The Purposes of Creativity & Art",
-    type: "keynote",
-    date: "2025-10-16",
-    time: "14:00-14:30",
-    location: "FUCINE",
-    speakers: ["Matthias Buehler"],
-    description:
-      "Keynote exploring the fundamental purposes and value of creativity and art",
-    categories: ["art", "philosophy"],
-    tags: ["creativity", "art purpose", "philosophy", "keynote"],
-  },
-  {
-    id: 113,
-    title: "Once Upon a Toon: Folktales and History with an Animated Twist!",
-    type: "talk",
-    date: "2025-10-16",
-    time: "14:00-15:00",
-    location: "BINARIO3",
-    speakers: ["Munjal B. Shroff"],
-    description:
-      "Using animation to tell traditional folktales and historical stories",
-    categories: ["animation", "storytelling"],
-    tags: ["folktales", "history", "animated stories", "graphiti studios"],
-  },
-  {
-    id: 114,
-    title:
-      "GAME-ER Clusters in Action: Co-Op Mode as the New Industry Standard",
-    type: "panel",
-    date: "2025-10-16",
-    time: "15:15-16:15",
-    location: "BINARIO3",
-    speakers: [
-      "Valerio Di Donato",
-      "Darshana Jayemanne",
-      "Luís Leça",
-      "Matteo Sapio",
-      "Matteo Pessione",
-    ],
-    description:
-      "Gaming industry collaboration and cluster development strategies",
-    categories: ["game", "business"],
-    tags: ["gaming clusters", "collaboration", "industry standards", "co-op"],
-  },
-  {
-    id: 115,
-    title:
-      "Embodiment of Motion: Loïe Fuller & Aesthetics of Performance in Emerging Tech",
-    type: "talk",
-    date: "2025-10-16",
-    time: "15:15-16:15",
-    location: "TECA B",
-    speakers: ["Rochele Gloor"],
-    description:
-      "Performance art aesthetics applied to emerging technology and digital media",
-    categories: ["art", "technology"],
-    tags: ["performance art", "motion", "emerging tech", "aesthetics"],
-  },
-  {
-    id: 116,
-    title: "Women in Animation: VFX and Live Action",
-    type: "panel",
-    date: "2025-10-16",
-    time: "16:30-17:30",
-    location: "BINARIO3",
-    speakers: [
-      "Domee Shi",
-      "Claudia Marvisi",
-      "Delphine Coudray",
-      "Madeline Sharafian",
-      "Janet Lewin",
-    ],
-    description: "Panel celebrating women's contributions to animation and VFX",
-    categories: ["animation", "vfx", "diversity"],
-    tags: ["women in animation", "diversity", "pixar", "ilm", "industry"],
-  },
-  {
-    id: 117,
-    title: "The Future of Filmmaking (2025)",
-    type: "panel",
-    date: "2025-10-16",
-    time: "18:30-19:30",
-    location: "FUCINE",
-    speakers: [
-      "Ramsey Naito",
-      "Doug Chiang",
-      "Kevin Baillie",
-      "Jeff Dillinger",
-      "Janet Lewin",
-      "Fiona Walkinshaw",
-      "Laurens Ehrmann",
-      "Ian Failes",
-    ],
-    description:
-      "Industry leaders discuss the future direction of filmmaking technology and creativity",
-    categories: ["filmmaking", "future"],
-    tags: [
-      "future filmmaking",
-      "lucasfilm",
-      "ilm",
-      "framestore",
-      "industry leaders",
-    ],
-  },
-  {
-    id: 118,
-    title: "Studio Ready: Tips and Q&A on Getting Hired in Animation & VFX!",
-    type: "ama",
-    date: "2025-10-17",
-    time: "09:00-10:00",
-    location: "MEZZANINO",
-    speakers: ["Siva Kumar Kasetty"],
-    description:
-      "Practical advice on getting hired in animation and VFX studios",
-    categories: ["career", "education"],
-    tags: ["job hunting", "studio hiring", "career advice", "za studios"],
-  },
-  {
-    id: 119,
-    title: "Immersive Entertainment: Building Cinematic Stories on Vision Pro",
-    type: "talk",
-    date: "2025-10-17",
-    time: "10:15-11:15",
-    location: "BINARIO3",
-    speakers: ["Victor Agulhon"],
-    description:
-      "Creating immersive cinematic experiences for Apple Vision Pro",
-    categories: ["technology", "immersive"],
-    tags: ["vision pro", "immersive", "ar", "cinematic storytelling"],
-  },
-  {
-    id: 120,
-    title: "How to Become the 3D Artist of Tomorrow",
-    type: "talk",
-    date: "2025-10-17",
-    time: "10:15-11:15",
-    location: "MEZZANINO",
-    speakers: ["Gennaro Esposito"],
-    description: "Future skills and career development for 3D artists",
-    categories: ["career", "3d"],
-    tags: ["3d artist", "future skills", "career development", "digital shark"],
-  },
-  {
-    id: 121,
-    title: "NORA: the First Italian V-Idol and Digital Pop Star",
-    type: "talk",
-    date: "2025-10-17",
-    time: "11:30-12:30",
-    location: "MEZZANINO",
-    speakers: ["Serena Tripepi", "Max Carrier Ragazzi"],
-    description: "Creating Italy's first virtual idol and digital performer",
-    categories: ["technology", "entertainment"],
-    tags: ["virtual idol", "digital performer", "italy", "maga animation"],
-  },
-  {
-    id: 122,
-    title: "From Script to Screen",
-    type: "panel",
-    date: "2025-10-17",
-    time: "12:45-13:45",
-    location: "MEZZANINO",
-    speakers: ["Heike Kluger", "Tara DeMarco", "Christina Caspers-Roemer"],
-    description:
-      "The complete production pipeline from initial script to final screen",
-    categories: ["production"],
-    tags: ["production pipeline", "script to screen", "workflow", "cinesite"],
-  },
-  {
-    id: 123,
-    title:
-      "Bridging the Gap in VFX: Collaboration & Innovation (In Partnership with VES)",
-    type: "panel",
-    date: "2025-10-17",
-    time: "14:00-15:00",
-    location: "MEZZANINO",
-    speakers: [
-      "Kevin Baillie",
-      "Christine Resch",
-      "Michael Ralla",
-      "Christina Caspers-Roemer",
-    ],
-    description:
-      "VES-sponsored panel on collaboration and innovation in VFX industry",
-    categories: ["vfx", "collaboration"],
-    tags: ["ves", "collaboration", "innovation", "adobe", "eyeline"],
-  },
-  {
-    id: 124,
-    title: "From Slot Machine to Meaningful Creative Control",
-    type: "talk",
-    date: "2025-10-17",
-    time: "15:15-16:15",
-    location: "MEZZANINO",
-    speakers: ["Martin Nebelong"],
-    description:
-      "Evolution from randomized content to meaningful creative control in digital media",
-    categories: ["art", "technology"],
-    tags: ["creative control", "google", "vr", "meaningful creation"],
-  },
-  {
-    id: 125,
-    title: "A Life in Film Design",
-    type: "keynote",
-    date: "2025-10-17",
-    time: "17:45-18:45",
-    location: "FUCINE",
-    speakers: ["Doug Chiang", "Alexandre Poncet"],
-    description:
-      "Keynote celebrating Doug Chiang's career and contributions to film design",
-    categories: ["design", "career"],
-    tags: [
-      "doug chiang",
-      "lucasfilm",
-      "film design",
-      "career retrospective",
-      "visionary award",
-    ],
-  },
-];
+    {
+      title: "Learn the History of Visual Effects",
+      startTime: "09:00",
+      endTime: "12:00",
+      time: "09:00-12:00",
+      date: "2025-10-12",
+      location: "ITS 1",
+      speakers: [
+        "Ian Failes"
+      ],
+      type: "workshop",
+      categories: [
+        "vfx"
+      ],
+      tags: [
+        "workshop",
+        "vfx",
+        "history",
+        "cinema"
+      ],
+      description: "3-Hour workshop exploring the evolution of visual effects in cinema",
+      url: "https://www.viewconference.it/article/1111"
+    },
+    {
+      title: "Aspects of Visualization with Unreal Engine: Hands-On Pre-Viz and Post-Viz",
+      startTime: "09:00",
+      endTime: "16:30",
+      time: "09:00-16:30",
+      date: "2025-10-12",
+      location: "ITS 2",
+      speakers: [
+        "Oleg  Fryazinov"
+      ],
+      type: "workshop",
+      categories: [
+        "technology"
+      ],
+      tags: [
+        "workshop",
+        "technology",
+        "unreal engine",
+        "previz",
+        "postviz",
+        "visualization"
+      ],
+      description: "6 hour workshop covering Pre-Visualization and Post-Visualization techniques with Unreal Engine",
+      url: "https://www.viewconference.it/article/1144"
+    },
+    {
+      title: "Deep-Dive Procreate",
+      startTime: "09:00",
+      endTime: "13:00",
+      time: "09:00-13:00",
+      date: "2025-10-12",
+      location: "ITS 4",
+      speakers: [
+        "Kyle T. Webster"
+      ],
+      type: "workshop",
+      categories: [
+        "general"
+      ],
+      tags: [
+        "workshop",
+        "procreate",
+        "digital art",
+        "illustration"
+      ],
+      description: "4-Hour workshop on advanced Procreate techniques and digital illustration",
+      url: "https://www.viewconference.it/article/1121"
+    },
+    {
+      title: "Creating the World of Game of Thrones: Environment Concept Art",
+      startTime: "09:00",
+      endTime: "16:30",
+      time: "09:00-16:30",
+      date: "2025-10-12",
+      location: "ITS 8",
+      speakers: [
+        "Kieran Belshaw"
+      ],
+      type: "workshop",
+      categories: [
+        "gaming"
+      ],
+      tags: [
+        "workshop",
+        "environment"
+      ],
+      description: "Workshop workshop at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1157"
+    },
+    {
+      title: "From Zero to Hero",
+      startTime: "09:00",
+      endTime: "16:30",
+      time: "09:00-16:30",
+      date: "2025-10-12",
+      location: "ITS 9",
+      speakers: [
+        "Gennaro Esposito"
+      ],
+      type: "workshop",
+      categories: [
+        "general"
+      ],
+      tags: [
+        "workshop"
+      ],
+      description: "Workshop workshop at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1169"
+    },
+    {
+      title: "Sketching! Create the Line Before The Code",
+      startTime: "09:00",
+      endTime: "16:30",
+      time: "09:00-16:30",
+      date: "2025-10-12",
+      location: "ITS 12",
+      speakers: [
+        "Michael Coldewey"
+      ],
+      type: "workshop",
+      categories: [
+        "general"
+      ],
+      tags: [
+        "workshop"
+      ],
+      description: "Workshop workshop at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1149"
+    },
+    {
+      title: "Katana: From MultiShot to MultiStyle",
+      startTime: "09:00",
+      endTime: "11:00",
+      time: "09:00-11:00",
+      date: "2025-10-12",
+      location: "ITS 13",
+      speakers: [
+        "Christos Obretenov",
+        "Ernst Janssen Groesbeek"
+      ],
+      type: "workshop",
+      categories: [
+        "general"
+      ],
+      tags: [
+        "workshop",
+        "katana",
+        "stylized",
+        "rendering"
+      ],
+      description: "Workshop workshop covering advanced Katana techniques for stylized rendering workflows",
+      url: "https://www.viewconference.it/article/1175"
+    },
+    {
+      title: "Designing for the Mind: A Dive into Product Psychology in UX and Product Design",
+      startTime: "09:00",
+      endTime: "13:00",
+      time: "09:00-13:00",
+      date: "2025-10-12",
+      location: "ITS 14",
+      speakers: [
+        "Riccardo Russiano"
+      ],
+      type: "workshop",
+      categories: [
+        "art"
+      ],
+      tags: [
+        "workshop"
+      ],
+      description: "Workshop workshop at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1134"
+    },
+    {
+      title: "How to Make a Creature: Mastering Secondary and Tertiary Details",
+      startTime: "09:00",
+      endTime: "16:30",
+      time: "09:00-16:30",
+      date: "2025-10-12",
+      location: "ITS 15",
+      speakers: [
+        "Andrea Salvatori"
+      ],
+      type: "workshop",
+      categories: [
+        "technology"
+      ],
+      tags: [
+        "workshop",
+        "technology",
+        "ai",
+        "machine learning"
+      ],
+      description: "Workshop workshop exploring artificial intelligence applications in creative workflows",
+      url: "https://www.viewconference.it/article/1197"
+    },
+    {
+      title: "Code Meets Creativity: A Creative’s Journey into Tech",
+      startTime: "09:00",
+      endTime: "11:00",
+      time: "09:00-11:00",
+      date: "2025-10-12",
+      location: "ITS TEATRO",
+      speakers: [
+        "Jonas Kluger"
+      ],
+      type: "workshop",
+      categories: [
+        "general"
+      ],
+      tags: [
+        "workshop"
+      ],
+      description: "Workshop workshop at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1137"
+    },
+    {
+      title: "Showreel Clinic: Bring Yours to Get Feedback",
+      startTime: "09:00",
+      endTime: "10:00",
+      time: "09:00-10:00",
+      date: "2025-10-12",
+      location: "SALA POLIFUNZIONALE",
+      speakers: [
+        "Saint Walker"
+      ],
+      type: "ama",
+      categories: [
+        "technology"
+      ],
+      tags: [
+        "ama",
+        "technology"
+      ],
+      description: "ama at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1163"
+    },
+    {
+      title: "Portfolio Reviews: 3D Animation, 3D Generalists",
+      startTime: "10:15",
+      endTime: "11:15",
+      time: "10:15-11:15",
+      date: "2025-10-12",
+      location: "SALA POLIFUNZIONALE",
+      speakers: [
+        "Brenda Ximena Roldan Romero",
+        "Ethan Francis"
+      ],
+      type: "portfolio",
+      categories: [
+        "animation"
+      ],
+      tags: [
+        "portfolio",
+        "animation"
+      ],
+      description: "portfolio at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1164"
+    },
+    {
+      title: "Evolve from Seeing to Vision, from Watching to Storytelling",
+      startTime: "10:30",
+      endTime: "17:30",
+      time: "10:30-17:30",
+      date: "2025-10-12",
+      location: "ITS 3",
+      speakers: [
+        "Asa Mathat"
+      ],
+      type: "workshop",
+      categories: [
+        "general"
+      ],
+      tags: [
+        "workshop"
+      ],
+      description: "Workshop workshop at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1168"
+    },
+    {
+      title: "Particles &amp; Fluids in Motion: Exploring VFX with Unreal Engine",
+      startTime: "11:15",
+      endTime: "17:15",
+      time: "11:15-17:15",
+      date: "2025-10-12",
+      location: "ITS 10",
+      speakers: [
+        "Christian Tagliapietra"
+      ],
+      type: "workshop",
+      categories: [
+        "vfx"
+      ],
+      tags: [
+        "workshop",
+        "vfx",
+        "unreal engine",
+        "previz",
+        "postviz",
+        "visualization"
+      ],
+      description: "Workshop workshop covering Pre-Visualization and Post-Visualization techniques with Unreal Engine",
+      url: "https://www.viewconference.it/article/1162"
+    },
+    {
+      title: "Making the Most of Your Showreel in an Age of AI",
+      startTime: "11:15",
+      endTime: "12:15",
+      time: "11:15-12:15",
+      date: "2025-10-12",
+      location: "ITS TEATRO",
+      speakers: [
+        "Saint Walker"
+      ],
+      type: "ama",
+      categories: [
+        "technology"
+      ],
+      tags: [
+        "ama",
+        "technology",
+        "ai",
+        "machine learning"
+      ],
+      description: "ama exploring artificial intelligence applications in creative workflows",
+      url: "https://www.viewconference.it/article/1106"
+    },
+    {
+      title: "Animating with Purpose: Finding Your Voice in Big Productions",
+      startTime: "11:30",
+      endTime: "12:30",
+      time: "11:30-12:30",
+      date: "2025-10-12",
+      location: "SALA POLIFUNZIONALE",
+      speakers: [
+        "Brenda Ximena Roldan Romero"
+      ],
+      type: "talk",
+      categories: [
+        "production"
+      ],
+      tags: [],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1141"
+    },
+    {
+      title: "Gaussian Splatting for Production",
+      startTime: "12:15",
+      endTime: "16:15",
+      time: "12:15-16:15",
+      date: "2025-10-12",
+      location: "ITS 1",
+      speakers: [
+        "Eloi Champagne"
+      ],
+      type: "workshop",
+      categories: [
+        "production"
+      ],
+      tags: [
+        "workshop",
+        "gaussian splatting",
+        "advanced",
+        "environment"
+      ],
+      description: "Workshop workshop on using Gaussian Splatting techniques in production environments",
+      url: "https://www.viewconference.it/article/1104"
+    },
+    {
+      title: "The Evolving VFX Landscape",
+      startTime: "12:45",
+      endTime: "13:45",
+      time: "12:45-13:45",
+      date: "2025-10-12",
+      location: "SALA POLIFUNZIONALE",
+      speakers: [
+        "Mara Froehlich",
+        "Hayley Miller",
+        "Heike Kluger"
+      ],
+      type: "panel",
+      categories: [
+        "vfx"
+      ],
+      tags: [
+        "panel",
+        "vfx"
+      ],
+      description: "panel at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1161"
+    },
+    {
+      title: "Using Reference with Purpose – From Footage to Performance",
+      startTime: "13:15",
+      endTime: "16:15",
+      time: "13:15-16:15",
+      date: "2025-10-12",
+      location: "ITS 4",
+      speakers: [
+        "Alexis Wanneroy"
+      ],
+      type: "workshop",
+      categories: [
+        "general"
+      ],
+      tags: [
+        "workshop"
+      ],
+      description: "Workshop workshop at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1079"
+    },
+    {
+      title: "Stylized Rendering: Two Approaches From 2D Artwork to 3D and Back Again",
+      startTime: "13:15",
+      endTime: "16:15",
+      time: "13:15-16:15",
+      date: "2025-10-12",
+      location: "ITS 13",
+      speakers: [
+        "Christos Obretenov",
+        "Ernst Janssen Groesbeek",
+        "Denver Jackson"
+      ],
+      type: "workshop",
+      categories: [
+        "rendering"
+      ],
+      tags: [
+        "workshop",
+        "ai",
+        "machine learning"
+      ],
+      description: "Workshop workshop exploring artificial intelligence applications in creative workflows",
+      url: "https://www.viewconference.it/article/1103"
+    },
+    {
+      title: "Code to Creation: Modern Tools for the Solo Artist",
+      startTime: "13:45",
+      endTime: "15:45",
+      time: "13:45-15:45",
+      date: "2025-10-12",
+      location: "ITS TEATRO",
+      speakers: [
+        "Boyan Georgiev"
+      ],
+      type: "masterclass",
+      categories: [
+        "art"
+      ],
+      tags: [
+        "masterclass"
+      ],
+      description: "Masterclass masterclass at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1176"
+    },
+    {
+      title: "Shaping Brand Stories, VFX in Advertising",
+      startTime: "14:00",
+      endTime: "15:00",
+      time: "14:00-15:00",
+      date: "2025-10-12",
+      location: "SALA POLIFUNZIONALE",
+      speakers: [
+        "Kate Gabriel"
+      ],
+      type: "talk",
+      categories: [
+        "vfx"
+      ],
+      tags: [
+        "vfx"
+      ],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1143"
+    },
+    {
+      title: "The Purpose and Principles of Architecture",
+      startTime: "15:15",
+      endTime: "16:15",
+      time: "15:15-16:15",
+      date: "2025-10-12",
+      location: "SALA POLIFUNZIONALE",
+      speakers: [
+        "Matthias Buehler"
+      ],
+      type: "workshop",
+      categories: [
+        "general"
+      ],
+      tags: [
+        "workshop"
+      ],
+      description: "Workshop workshop at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1152"
+    },
+    {
+      title: "Bridging the Gap between Education and Industry",
+      startTime: "15:30",
+      endTime: "16:30",
+      time: "15:30-16:30",
+      date: "2025-10-12",
+      location: "ITS 14",
+      speakers: [
+        "Morten Thorning"
+      ],
+      type: "ama",
+      categories: [
+        "general"
+      ],
+      tags: [
+        "ama"
+      ],
+      description: "ama at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1177"
+    },
+    {
+      title: "Ask Me Anything About Character Animation for VFX (2025)",
+      startTime: "16:00",
+      endTime: "17:00",
+      time: "16:00-17:00",
+      date: "2025-10-12",
+      location: "ITS TEATRO",
+      speakers: [
+        "Hal Hickel"
+      ],
+      type: "ama",
+      categories: [
+        "vfx"
+      ],
+      tags: [
+        "ama",
+        "vfx",
+        "character"
+      ],
+      description: "ama at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1165"
+    },
+    {
+      title: "From Animation to Reality: Bringing an animated character to life!",
+      startTime: "16:30",
+      endTime: "17:30",
+      time: "16:30-17:30",
+      date: "2025-10-12",
+      location: "SALA POLIFUNZIONALE",
+      speakers: [
+        "Alexis Wanneroy",
+        "Stuart Ward"
+      ],
+      type: "talk",
+      categories: [
+        "animation"
+      ],
+      tags: [
+        "animation",
+        "character"
+      ],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1190"
+    },
+    {
+      title: "Beyond VFX: Hidden Career Gems",
+      startTime: "17:15",
+      endTime: "18:15",
+      time: "17:15-18:15",
+      date: "2025-10-12",
+      location: "ITS TEATRO",
+      speakers: [
+        "Kate Gabriel",
+        "Beata Parczewska",
+        "Boyan Georgiev",
+        "Agata M. Soccini",
+        "Eva Krpanov"
+      ],
+      type: "ama",
+      categories: [
+        "vfx"
+      ],
+      tags: [
+        "ama",
+        "vfx"
+      ],
+      description: "ama at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1182"
+    },
+    {
+      title: "Career Advice: My First Job and What I Learned",
+      startTime: "17:45",
+      endTime: "18:45",
+      time: "17:45-18:45",
+      date: "2025-10-12",
+      location: "SALA POLIFUNZIONALE",
+      speakers: [
+        "Hal Hickel",
+        "Saint Walker",
+        "Eloi Champagne",
+        "Jan-Bart Van Beek",
+        "Alexis Wanneroy"
+      ],
+      type: "masterclass",
+      categories: [
+        "technology"
+      ],
+      tags: [
+        "masterclass",
+        "technology"
+      ],
+      description: "Masterclass masterclass at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1166"
+    },
+    {
+      title: "More Than Pixels: A Friendship's Guide to a Long Career in VFX",
+      startTime: "18:30",
+      endTime: "19:30",
+      time: "18:30-19:30",
+      date: "2025-10-12",
+      location: "ITS TEATRO",
+      speakers: [
+        "Filippo Robino",
+        "Roberto Rodricks"
+      ],
+      type: "ama",
+      categories: [
+        "vfx"
+      ],
+      tags: [
+        "ama",
+        "vfx"
+      ],
+      description: "ama at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1188"
+    },
+    {
+      title: "Acting Beats, Accents &amp; Facial Connection: Making Performance Feel Real",
+      startTime: "09:00",
+      endTime: "12:00",
+      time: "09:00-12:00",
+      date: "2025-10-13",
+      location: "ITS 3",
+      speakers: [
+        "Alexis Wanneroy"
+      ],
+      type: "workshop",
+      categories: [
+        "general"
+      ],
+      tags: [
+        "workshop"
+      ],
+      description: "Workshop workshop at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1147"
+    },
+    {
+      title: "Knock Knock. Who's There?",
+      startTime: "09:00",
+      endTime: "16:30",
+      time: "09:00-16:30",
+      date: "2025-10-13",
+      location: "ITS 4",
+      speakers: [
+        "Kris Pearn"
+      ],
+      type: "workshop",
+      categories: [
+        "general"
+      ],
+      tags: [
+        "workshop"
+      ],
+      description: "Workshop workshop at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1093"
+    },
+    {
+      title: "Concept Art for Games",
+      startTime: "09:00",
+      endTime: "16:30",
+      time: "09:00-16:30",
+      date: "2025-10-13",
+      location: "ITS 8",
+      speakers: [
+        "Michael Coldewey"
+      ],
+      type: "workshop",
+      categories: [
+        "gaming"
+      ],
+      tags: [
+        "workshop"
+      ],
+      description: "Workshop workshop at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1148"
+    },
+    {
+      title: "3D Modeling/Texturing in Maya and Substance Painter",
+      startTime: "09:00",
+      endTime: "12:00",
+      time: "09:00-12:00",
+      date: "2025-10-13",
+      location: "ITS 10",
+      speakers: [
+        "Gennaro Esposito"
+      ],
+      type: "workshop",
+      categories: [
+        "technology"
+      ],
+      tags: [
+        "workshop",
+        "technology",
+        "ai",
+        "machine learning"
+      ],
+      description: "Workshop workshop exploring artificial intelligence applications in creative workflows",
+      url: "https://www.viewconference.it/article/1172"
+    },
+    {
+      title: "Virtual Production",
+      startTime: "09:00",
+      endTime: "15:00",
+      time: "09:00-15:00",
+      date: "2025-10-13",
+      location: "ITS 15",
+      speakers: [
+        "Habib Zargarpour"
+      ],
+      type: "workshop",
+      categories: [
+        "production"
+      ],
+      tags: [
+        "workshop",
+        "virtual production",
+        "realtime"
+      ],
+      description: "Workshop workshop on virtual production techniques and workflows",
+      url: "https://www.viewconference.it/article/1200"
+    },
+    {
+      title: "Observation and Study for Advancing Your Animation! Part 1",
+      startTime: "09:00",
+      endTime: "11:00",
+      time: "09:00-11:00",
+      date: "2025-10-13",
+      location: "SALA POLIFUNZIONALE",
+      speakers: [
+        "Ted Ty"
+      ],
+      type: "workshop",
+      categories: [
+        "animation"
+      ],
+      tags: [
+        "workshop",
+        "animation"
+      ],
+      description: "Workshop workshop at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1082"
+    },
+    {
+      title: "Observation and Study for Advancing Your Animation! Part 2",
+      startTime: "11:00",
+      endTime: "13:00",
+      time: "11:00-13:00",
+      date: "2025-10-13",
+      location: "SALA POLIFUNZIONALE",
+      speakers: [
+        "Ted Ty"
+      ],
+      type: "workshop",
+      categories: [
+        "animation"
+      ],
+      tags: [
+        "workshop",
+        "animation"
+      ],
+      description: "Workshop workshop at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1129"
+    },
+    {
+      title: "Stylized Worlds with RenderMan XPU: A Creative Workshop",
+      startTime: "12:15",
+      endTime: "14:15",
+      time: "12:15-14:15",
+      date: "2025-10-13",
+      location: "ITS 3",
+      speakers: [
+        "Dylan Sisson"
+      ],
+      type: "workshop",
+      categories: [
+        "general"
+      ],
+      tags: [
+        "workshop"
+      ],
+      description: "Workshop workshop at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1124"
+    },
+    {
+      title: "From Phoenician Scheme to Grand Budapest Hotel: Designing Miniature Sets for Wes Anderson\n                  Films",
+      startTime: "13:15",
+      endTime: "15:15",
+      time: "13:15-15:15",
+      date: "2025-10-13",
+      location: "SALA POLIFUNZIONALE",
+      speakers: [
+        "Simon Weisse"
+      ],
+      type: "masterclass",
+      categories: [
+        "art"
+      ],
+      tags: [
+        "masterclass"
+      ],
+      description: "Masterclass masterclass at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1109"
+    },
+    {
+      title: "Creative Careers Unfiltered: Motivation, Mentorship &amp; Meaningful Networking",
+      startTime: "14:30",
+      endTime: "15:30",
+      time: "14:30-15:30",
+      date: "2025-10-13",
+      location: "ITS 10",
+      speakers: [
+        "Brenda Ximena Roldan Romero",
+        "Ethan Francis"
+      ],
+      type: "ama",
+      categories: [
+        "general"
+      ],
+      tags: [
+        "ama"
+      ],
+      description: "ama at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1142"
+    },
+    {
+      title: "AMA: Nonno Edition. Doubts and Hopes for a Future Self",
+      startTime: "15:30",
+      endTime: "16:30",
+      time: "15:30-16:30",
+      date: "2025-10-13",
+      location: "SALA POLIFUNZIONALE",
+      speakers: [
+        "Luca Prasso"
+      ],
+      type: "ama",
+      categories: [
+        "general"
+      ],
+      tags: [
+        "ama"
+      ],
+      description: "ama at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1192"
+    },
+    {
+      title: "Portfolio Reviews: Tips and Tricks",
+      startTime: "15:45",
+      endTime: "16:45",
+      time: "15:45-16:45",
+      date: "2025-10-13",
+      location: "ITS 3",
+      speakers: [
+        "Brenda Ximena Roldan Romero",
+        "Ethan Francis"
+      ],
+      type: "portfolio",
+      categories: [
+        "general"
+      ],
+      tags: [
+        "portfolio"
+      ],
+      description: "portfolio at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1167"
+    },
+    {
+      title: "Ask Me Anything: Bringing Creatures and Characters to Life in Production",
+      startTime: "15:45",
+      endTime: "16:45",
+      time: "15:45-16:45",
+      date: "2025-10-13",
+      location: "ITS 10",
+      speakers: [
+        "Andrea Salvatori"
+      ],
+      type: "ama",
+      categories: [
+        "animation"
+      ],
+      tags: [
+        "ama",
+        "animation",
+        "character"
+      ],
+      description: "ama at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1196"
+    },
+    {
+      title: "How It Started, How Its Going",
+      startTime: "16:45",
+      endTime: "17:45",
+      time: "16:45-17:45",
+      date: "2025-10-13",
+      location: "SALA POLIFUNZIONALE",
+      speakers: [
+        "Dylan Sisson",
+        "Ted Ty",
+        "Kyle T. Webster",
+        "Luca Prasso",
+        "Kris Pearn",
+        "Barbara Robertson"
+      ],
+      type: "ama",
+      categories: [
+        "art"
+      ],
+      tags: [
+        "ama"
+      ],
+      description: "ama at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1203"
+    },
+    {
+      title: "The Bad Guys 2",
+      startTime: "09:00",
+      endTime: "10:00",
+      time: "09:00-10:00",
+      date: "2025-10-14",
+      location: "FUCINE",
+      speakers: [
+        "Matt Baer",
+        "Pierre Perifel"
+      ],
+      type: "talk",
+      categories: [
+        "general"
+      ],
+      tags: [],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1112"
+    },
+    {
+      title: "Wicked: For Good (Premiere Talk)",
+      startTime: "10:15",
+      endTime: "11:15",
+      time: "10:15-11:15",
+      date: "2025-10-14",
+      location: "FUCINE",
+      speakers: [
+        "Dale Newton",
+        "Pablo Helman"
+      ],
+      type: "talk",
+      categories: [
+        "general"
+      ],
+      tags: [],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1139"
+    },
+    {
+      title: "KPop Demon Hunters",
+      startTime: "11:30",
+      endTime: "12:30",
+      time: "11:30-12:30",
+      date: "2025-10-14",
+      location: "FUCINE",
+      speakers: [
+        "Maggie Kang",
+        "Chris Appelhans"
+      ],
+      type: "talk",
+      categories: [
+        "general"
+      ],
+      tags: [],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1131"
+    },
+    {
+      title: "Creating a Family-Friendly Apocalypse: The Development of Lego Horizon Adventures",
+      startTime: "12:45",
+      endTime: "13:45",
+      time: "12:45-13:45",
+      date: "2025-10-14",
+      location: "FUCINE",
+      speakers: [
+        "Jan-Bart Van Beek",
+        "Jochen Willemsen"
+      ],
+      type: "talk",
+      categories: [
+        "art"
+      ],
+      tags: [],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1094"
+    },
+    {
+      title: "Guillermo del Toro's Frankenstein",
+      startTime: "12:45",
+      endTime: "13:45",
+      time: "12:45-13:45",
+      date: "2025-10-14",
+      location: "BINARIO3",
+      speakers: [
+        "Dan Laustsen"
+      ],
+      type: "talk",
+      categories: [
+        "general"
+      ],
+      tags: [],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1208"
+    },
+    {
+      title: "Transforming Creativity: How AI Can Elevate Your Ideas",
+      startTime: "12:45",
+      endTime: "13:45",
+      time: "12:45-13:45",
+      date: "2025-10-14",
+      location: "MEZZANINO",
+      speakers: [
+        "Habib Zargarpour"
+      ],
+      type: "masterclass",
+      categories: [
+        "technology"
+      ],
+      tags: [
+        "masterclass",
+        "technology",
+        "ai",
+        "machine learning"
+      ],
+      description: "Masterclass masterclass exploring artificial intelligence applications in creative workflows",
+      url: "https://www.viewconference.it/article/1171"
+    },
+    {
+      title: "Beyond Prompts: Unlocking Creative Collaboration with AI Agents",
+      startTime: "14:00",
+      endTime: "15:00",
+      time: "14:00-15:00",
+      date: "2025-10-14",
+      location: "FUCINE",
+      speakers: [
+        "Rick Champagne"
+      ],
+      type: "talk",
+      categories: [
+        "technology"
+      ],
+      tags: [
+        "technology",
+        "ai",
+        "machine learning"
+      ],
+      description: "talk exploring artificial intelligence applications in creative workflows",
+      url: "https://www.viewconference.it/article/1179"
+    },
+    {
+      title: "Procreate Demo: Procreate Dreams 2",
+      startTime: "14:00",
+      endTime: "15:00",
+      time: "14:00-15:00",
+      date: "2025-10-14",
+      location: "BINARIO3",
+      speakers: [
+        "Kyle T. Webster"
+      ],
+      type: "masterclass",
+      categories: [
+        "general"
+      ],
+      tags: [
+        "masterclass",
+        "procreate",
+        "digital art",
+        "illustration"
+      ],
+      description: "2-Hour masterclass on advanced Procreate techniques and digital illustration",
+      url: "https://www.viewconference.it/article/1128"
+    },
+    {
+      title: "White Rabbit: The Art of Audience Engagement in the Age of AI",
+      startTime: "14:00",
+      endTime: "15:00",
+      time: "14:00-15:00",
+      date: "2025-10-14",
+      location: "MEZZANINO",
+      speakers: [
+        "Maciej Kuciara"
+      ],
+      type: "talk",
+      categories: [
+        "technology"
+      ],
+      tags: [
+        "technology",
+        "ai",
+        "machine learning"
+      ],
+      description: "talk exploring artificial intelligence applications in creative workflows",
+      url: "https://www.viewconference.it/article/1151"
+    },
+    {
+      title: "Cinema.3: A New Era of Film",
+      startTime: "15:00",
+      endTime: "16:00",
+      time: "15:00-16:00",
+      date: "2025-10-14",
+      location: "BINARIO3",
+      speakers: [
+        "Giaime Alonge",
+        "Giulia Carluccio",
+        "Francesco Casetti",
+        "Simone Natale",
+        "Gabriella Taddeo",
+        "Habib Zargarpour"
+      ],
+      type: "panel",
+      categories: [
+        "technology"
+      ],
+      tags: [
+        "panel",
+        "technology",
+        "cinema"
+      ],
+      description: "panel at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1135"
+    },
+    {
+      title: "Beyond the Frame: 50 Years of ILM and the Next Era of Visual Storytelling",
+      startTime: "15:15",
+      endTime: "16:15",
+      time: "15:15-16:15",
+      date: "2025-10-14",
+      location: "FUCINE",
+      speakers: [
+        "Janet Lewin",
+        "Ian Failes"
+      ],
+      type: "talk",
+      categories: [
+        "technology"
+      ],
+      tags: [
+        "technology"
+      ],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1084"
+    },
+    {
+      title: "The Artist in Command: Taking Creative Control with Generative AI",
+      startTime: "15:15",
+      endTime: "16:15",
+      time: "15:15-16:15",
+      date: "2025-10-14",
+      location: "MEZZANINO",
+      speakers: [
+        "Ian Massingham"
+      ],
+      type: "talk",
+      categories: [
+        "technology"
+      ],
+      tags: [
+        "technology",
+        "ai",
+        "machine learning"
+      ],
+      description: "talk exploring artificial intelligence applications in creative workflows",
+      url: "https://www.viewconference.it/article/1181"
+    },
+    {
+      title: "Anatomy of a Battle: Rook’s Rest and The Dance of Dragons in House of the Dragon Season\n                  2",
+      startTime: "16:15",
+      endTime: "17:15",
+      time: "16:15-17:15",
+      date: "2025-10-14",
+      location: "BINARIO3",
+      speakers: [
+        "Claudia Marvisi"
+      ],
+      type: "talk",
+      categories: [
+        "general"
+      ],
+      tags: [],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1184"
+    },
+    {
+      title: "SENTINEL and AI: Know Your Foe!",
+      startTime: "16:30",
+      endTime: "17:30",
+      time: "16:30-17:30",
+      date: "2025-10-14",
+      location: "FUCINE",
+      speakers: [
+        "Phil Tippett",
+        "Gary Mundell",
+        "Mark Dubeau",
+        "Tom Gibbons",
+        "Marc Morissette",
+        "Remko Noteboom",
+        "Colin Geddes"
+      ],
+      type: "panel",
+      categories: [
+        "technology"
+      ],
+      tags: [
+        "panel",
+        "technology",
+        "ai",
+        "machine learning"
+      ],
+      description: "panel exploring artificial intelligence applications in creative workflows",
+      url: "https://www.viewconference.it/article/1108"
+    },
+    {
+      title: "A Minecraft Movie: How the Virtual Art Department Enabled Real-Time Collaboration\n                  with Unreal Engine",
+      startTime: "16:30",
+      endTime: "17:30",
+      time: "16:30-17:30",
+      date: "2025-10-14",
+      location: "MEZZANINO",
+      speakers: [
+        "Talia Finlayson"
+      ],
+      type: "talk",
+      categories: [
+        "technology"
+      ],
+      tags: [
+        "technology",
+        "unreal engine",
+        "previz",
+        "postviz",
+        "visualization"
+      ],
+      description: "talk covering Pre-Visualization and Post-Visualization techniques with Unreal Engine",
+      url: "https://www.viewconference.it/article/1198"
+    },
+    {
+      title: "Assets for Production: VFX &amp; Real-Time",
+      startTime: "17:30",
+      endTime: "18:30",
+      time: "17:30-18:30",
+      date: "2025-10-14",
+      location: "BINARIO3",
+      speakers: [
+        "Gennaro Esposito"
+      ],
+      type: "portfolio",
+      categories: [
+        "vfx"
+      ],
+      tags: [
+        "portfolio",
+        "vfx"
+      ],
+      description: "portfolio at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1205"
+    },
+    {
+      title: "The Future of Storytelling 2025",
+      startTime: "17:45",
+      endTime: "18:45",
+      time: "17:45-18:45",
+      date: "2025-10-14",
+      location: "FUCINE",
+      speakers: [
+        "Pierre Perifel",
+        "Camille Balsamo-Gillis",
+        "Alex Woo",
+        "Maggie Kang",
+        "Chris Appelhans",
+        "Kris Pearn",
+        "Dan Sarto"
+      ],
+      type: "panel",
+      categories: [
+        "art"
+      ],
+      tags: [
+        "panel"
+      ],
+      description: "panel at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1155"
+    },
+    {
+      title: "Artistic Integrity and Quieting the Noise: Navigating Emotion and Digital Storytelling",
+      startTime: "17:45",
+      endTime: "18:45",
+      time: "17:45-18:45",
+      date: "2025-10-14",
+      location: "MEZZANINO",
+      speakers: [
+        "Arissa Ackerman"
+      ],
+      type: "talk",
+      categories: [
+        "art"
+      ],
+      tags: [],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1191"
+    },
+    {
+      title: "Stitching It Together: Embracing Chaos in Crafting VFX for Live-Action Lilo &amp; Stitch",
+      startTime: "09:00",
+      endTime: "10:00",
+      time: "09:00-10:00",
+      date: "2025-10-15",
+      location: "FUCINE",
+      speakers: [
+        "Craig Hammack"
+      ],
+      type: "talk",
+      categories: [
+        "vfx"
+      ],
+      tags: [
+        "vfx"
+      ],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1085"
+    },
+    {
+      title: "The Case of the Missing Afikomen: An Interactive Detective Story with Ctrl Movie",
+      startTime: "09:00",
+      endTime: "10:00",
+      time: "09:00-10:00",
+      date: "2025-10-15",
+      location: "BINARIO3",
+      speakers: [
+        "Zane Swift"
+      ],
+      type: "talk",
+      categories: [
+        "general"
+      ],
+      tags: [],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1107"
+    },
+    {
+      title: "Visual Poetry: The Art of Japanese Cinema Posters",
+      startTime: "09:00",
+      endTime: "10:00",
+      time: "09:00-10:00",
+      date: "2025-10-15",
+      location: "MEZZANINO",
+      speakers: [
+        "Jeff Dillinger"
+      ],
+      type: "talk",
+      categories: [
+        "art"
+      ],
+      tags: [
+        "cinema"
+      ],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1102"
+    },
+    {
+      title: "Fantastic Four: First Steps",
+      startTime: "10:15",
+      endTime: "11:15",
+      time: "10:15-11:15",
+      date: "2025-10-15",
+      location: "FUCINE",
+      speakers: [
+        "Daniele Bigi"
+      ],
+      type: "talk",
+      categories: [
+        "general"
+      ],
+      tags: [],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1132"
+    },
+    {
+      title: "The Splat Frontier: Experimenting with 3D Gaussian Splatting",
+      startTime: "10:15",
+      endTime: "11:15",
+      time: "10:15-11:15",
+      date: "2025-10-15",
+      location: "BINARIO3",
+      speakers: [
+        "Eloi Champagne"
+      ],
+      type: "talk",
+      categories: [
+        "general"
+      ],
+      tags: [
+        "gaussian splatting",
+        "advanced",
+        "environment"
+      ],
+      description: "talk on using Gaussian Splatting techniques in production environments",
+      url: "https://www.viewconference.it/article/1154"
+    },
+    {
+      title: "Claynosaurz: Rise of the Interactive Franchises: Why the Future Belongs to Creators",
+      startTime: "10:15",
+      endTime: "11:15",
+      time: "10:15-11:15",
+      date: "2025-10-15",
+      location: "MEZZANINO",
+      speakers: [
+        "Nicholas Cabana"
+      ],
+      type: "talk",
+      categories: [
+        "general"
+      ],
+      tags: [],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1187"
+    },
+    {
+      title: "Short Films, Epic Ambitions",
+      startTime: "11:30",
+      endTime: "12:30",
+      time: "11:30-12:30",
+      date: "2025-10-15",
+      location: "FUCINE",
+      speakers: [
+        "Chris Lavis",
+        "Eric Pouliot"
+      ],
+      type: "talk",
+      categories: [
+        "general"
+      ],
+      tags: [],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1160"
+    },
+    {
+      title: "Capturing the Human Essence: Advances in 3D &amp; 4D Scanning",
+      startTime: "11:30",
+      endTime: "12:30",
+      time: "11:30-12:30",
+      date: "2025-10-15",
+      location: "BINARIO3",
+      speakers: [
+        "Jingyi Zhang"
+      ],
+      type: "talk",
+      categories: [
+        "general"
+      ],
+      tags: [],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1091"
+    },
+    {
+      title: "Is VFX a Sustainable Business Model?",
+      startTime: "11:30",
+      endTime: "12:30",
+      time: "11:30-12:30",
+      date: "2025-10-15",
+      location: "MEZZANINO",
+      speakers: [
+        "Heiko Burkardsmaier"
+      ],
+      type: "talk",
+      categories: [
+        "vfx"
+      ],
+      tags: [
+        "vfx",
+        "ai",
+        "machine learning"
+      ],
+      description: "talk exploring artificial intelligence applications in creative workflows",
+      url: "https://www.viewconference.it/article/1088"
+    },
+    {
+      title: "The VFX Behind the Emmy Award Winning Comedy: The Studio",
+      startTime: "12:45",
+      endTime: "13:15",
+      time: "12:45-13:15",
+      date: "2025-10-15",
+      location: "FUCINE",
+      speakers: [
+        "Jake Maymudes",
+        "Sandro Blattner"
+      ],
+      type: "talk",
+      categories: [
+        "vfx"
+      ],
+      tags: [
+        "vfx"
+      ],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1081"
+    },
+    {
+      title: "Walking With Animators",
+      startTime: "12:45",
+      endTime: "13:45",
+      time: "12:45-13:45",
+      date: "2025-10-15",
+      location: "BINARIO3",
+      speakers: [
+        "Alexandre Poncet"
+      ],
+      type: "talk",
+      categories: [
+        "general"
+      ],
+      tags: [],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1086"
+    },
+    {
+      title: "Advancing Visualization with Gaussian Splats in Feature Film",
+      startTime: "12:45",
+      endTime: "13:45",
+      time: "12:45-13:45",
+      date: "2025-10-15",
+      location: "MEZZANINO",
+      speakers: [
+        "Pawl Fulker"
+      ],
+      type: "talk",
+      categories: [
+        "general"
+      ],
+      tags: [
+        "gaussian splatting",
+        "advanced",
+        "environment"
+      ],
+      description: "talk on using Gaussian Splatting techniques in production environments",
+      url: "https://www.viewconference.it/article/1110"
+    },
+    {
+      title: "Caws &amp; Effects: Wednesday Season 2",
+      startTime: "13:30",
+      endTime: "14:30",
+      time: "13:30-14:30",
+      date: "2025-10-15",
+      location: "FUCINE",
+      speakers: [
+        "Kevin Buessecker",
+        "Jethro Au"
+      ],
+      type: "talk",
+      categories: [
+        "vfx"
+      ],
+      tags: [
+        "vfx"
+      ],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1150"
+    },
+    {
+      title: "Inspiring the Next Generation of Storytellers: AI &amp; Innovation Technology in Education",
+      startTime: "14:00",
+      endTime: "15:00",
+      time: "14:00-15:00",
+      date: "2025-10-15",
+      location: "BINARIO3",
+      speakers: [
+        "Oleg  Fryazinov",
+        "Morten Thorning",
+        "Simon Davies",
+        "Camille Jaulent",
+        "Andrea Bottino",
+        "Terrence Masson",
+        "Saint Walker"
+      ],
+      type: "panel",
+      categories: [
+        "technology"
+      ],
+      tags: [
+        "panel",
+        "technology",
+        "ai",
+        "machine learning"
+      ],
+      description: "panel exploring artificial intelligence applications in creative workflows",
+      url: "https://www.viewconference.it/article/1100"
+    },
+    {
+      title: "Small but Mighty: Getting Things Done with the Latest Tech, Tools &amp; Small Teams",
+      startTime: "14:00",
+      endTime: "15:00",
+      time: "14:00-15:00",
+      date: "2025-10-15",
+      location: "MEZZANINO",
+      speakers: [
+        "Andreas Maaninka",
+        "John Canning",
+        "Fulvio Sestito"
+      ],
+      type: "panel",
+      categories: [
+        "general"
+      ],
+      tags: [
+        "panel"
+      ],
+      description: "panel at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1174"
+    },
+    {
+      title: "Behind the Wheel of F1’s Invisible VFX",
+      startTime: "14:45",
+      endTime: "15:45",
+      time: "14:45-15:45",
+      date: "2025-10-15",
+      location: "FUCINE",
+      speakers: [
+        "Ryan Tudhope"
+      ],
+      type: "talk",
+      categories: [
+        "vfx"
+      ],
+      tags: [
+        "vfx"
+      ],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1133"
+    },
+    {
+      title: "From Location to Virtual Set: From Call Time to Render Time",
+      startTime: "15:15",
+      endTime: "16:15",
+      time: "15:15-16:15",
+      date: "2025-10-15",
+      location: "BINARIO3",
+      speakers: [
+        "Andreas Maaninka"
+      ],
+      type: "talk",
+      categories: [
+        "general"
+      ],
+      tags: [],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1185"
+    },
+    {
+      title: "Pixels, Pressure and People: Creative Leadership in VFX",
+      startTime: "15:15",
+      endTime: "16:15",
+      time: "15:15-16:15",
+      date: "2025-10-15",
+      location: "MEZZANINO",
+      speakers: [
+        "Filippo Robino",
+        "Claudia Marvisi",
+        "Heiko Burkardsmaier",
+        "Tracy Mccreary"
+      ],
+      type: "panel",
+      categories: [
+        "vfx"
+      ],
+      tags: [
+        "panel",
+        "vfx"
+      ],
+      description: "panel at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1126"
+    },
+    {
+      title: "Ready for Launch: Creating Fantastic Four's Miniature Ships with Cutting-Edge and\n                  Classic Techniques",
+      startTime: "16:00",
+      endTime: "17:00",
+      time: "16:00-17:00",
+      date: "2025-10-15",
+      location: "FUCINE",
+      speakers: [
+        "Ian Hunter",
+        "Reid Collums",
+        "Camille Balsamo-Gillis"
+      ],
+      type: "panel",
+      categories: [
+        "general"
+      ],
+      tags: [
+        "panel"
+      ],
+      description: "panel at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1120"
+    },
+    {
+      title: "Creating the Spaceport Environment for Dune: Prophecy",
+      startTime: "16:30",
+      endTime: "17:30",
+      time: "16:30-17:30",
+      date: "2025-10-15",
+      location: "BINARIO3",
+      speakers: [
+        "Apollonia Hartmann",
+        "David Anastacio"
+      ],
+      type: "talk",
+      categories: [
+        "art"
+      ],
+      tags: [
+        "environment"
+      ],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1089"
+    },
+    {
+      title: "The Art of Game Cinematics: The Witcher 4 Cinematic Trailer",
+      startTime: "16:30",
+      endTime: "17:30",
+      time: "16:30-17:30",
+      date: "2025-10-15",
+      location: "MEZZANINO",
+      speakers: [
+        "Tomek Suwalkski",
+        "Magdalena Rudnicka"
+      ],
+      type: "talk",
+      categories: [
+        "technology"
+      ],
+      tags: [
+        "technology",
+        "cinema",
+        "ai",
+        "machine learning"
+      ],
+      description: "talk exploring artificial intelligence applications in creative workflows",
+      url: "https://www.viewconference.it/article/1158"
+    },
+    {
+      title: "Stop Motion: Bring the Goods",
+      startTime: "17:15",
+      endTime: "18:15",
+      time: "17:15-18:15",
+      date: "2025-10-15",
+      location: "FUCINE",
+      speakers: [
+        "Phil Tippett",
+        "Gary Mundell",
+        "Mark Dubeau",
+        "Tom Gibbons",
+        "Ken Rogerson"
+      ],
+      type: "panel",
+      categories: [
+        "general"
+      ],
+      tags: [
+        "panel"
+      ],
+      description: "panel at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1087"
+    },
+    {
+      title: "Innovation and Creativity at the Service of Audiovisual Production",
+      startTime: "17:45",
+      endTime: "18:45",
+      time: "17:45-18:45",
+      date: "2025-10-15",
+      location: "BINARIO3",
+      speakers: [
+        "Monica Galantucci",
+        "Giulio Campiglia"
+      ],
+      type: "talk",
+      categories: [
+        "production"
+      ],
+      tags: [],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1178"
+    },
+    {
+      title: "Driving a Show, Success from the Art Department",
+      startTime: "17:45",
+      endTime: "18:45",
+      time: "17:45-18:45",
+      date: "2025-10-15",
+      location: "MEZZANINO",
+      speakers: [
+        "Javier Romero"
+      ],
+      type: "talk",
+      categories: [
+        "art"
+      ],
+      tags: [],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1127"
+    },
+    {
+      title: "When Worlds Collide: Bridging the Grid and Reality in TRON: Ares",
+      startTime: "18:30",
+      endTime: "19:30",
+      time: "18:30-19:30",
+      date: "2025-10-15",
+      location: "FUCINE",
+      speakers: [
+        "David Seager"
+      ],
+      type: "talk",
+      categories: [
+        "general"
+      ],
+      tags: [],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1194"
+    },
+    {
+      title: "Elio",
+      startTime: "09:00",
+      endTime: "10:00",
+      time: "09:00-10:00",
+      date: "2025-10-16",
+      location: "FUCINE",
+      speakers: [
+        "Domee Shi",
+        "Madeline Sharafian"
+      ],
+      type: "talk",
+      categories: [
+        "general"
+      ],
+      tags: [],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1075"
+    },
+    {
+      title: "In Your Dreams (Premiere Talk)",
+      startTime: "10:15",
+      endTime: "11:15",
+      time: "10:15-11:15",
+      date: "2025-10-16",
+      location: "FUCINE",
+      speakers: [
+        "Sacha Kapijimpanga",
+        "Nicky Lavender",
+        "Alex Woo",
+        "Ian Failes"
+      ],
+      type: "talk",
+      categories: [
+        "technology"
+      ],
+      tags: [
+        "technology"
+      ],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1113"
+    },
+    {
+      title: "Creating Worlds: The Art and Design of Avatar",
+      startTime: "11:30",
+      endTime: "12:30",
+      time: "11:30-12:30",
+      date: "2025-10-16",
+      location: "FUCINE",
+      speakers: [
+        "Dylan Cole"
+      ],
+      type: "talk",
+      categories: [
+        "art"
+      ],
+      tags: [],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1207"
+    },
+    {
+      title: "Solving for Creativity: Technical Experiments at the NFB",
+      startTime: "11:30",
+      endTime: "12:30",
+      time: "11:30-12:30",
+      date: "2025-10-16",
+      location: "BINARIO3",
+      speakers: [
+        "Eloi Champagne"
+      ],
+      type: "talk",
+      categories: [
+        "general"
+      ],
+      tags: [],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1115"
+    },
+    {
+      title: "VFX and Animation Worldwide: A Data-Driven Look at Our Industry",
+      startTime: "11:30",
+      endTime: "12:30",
+      time: "11:30-12:30",
+      date: "2025-10-16",
+      location: "TECA B",
+      speakers: [
+        "Joseph Bell"
+      ],
+      type: "talk",
+      categories: [
+        "vfx"
+      ],
+      tags: [
+        "vfx"
+      ],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1180"
+    },
+    {
+      title: "To Infinity… and RenderMan XPU!",
+      startTime: "12:45",
+      endTime: "13:45",
+      time: "12:45-13:45",
+      date: "2025-10-16",
+      location: "FUCINE",
+      speakers: [
+        "Dylan Sisson"
+      ],
+      type: "talk",
+      categories: [
+        "general"
+      ],
+      tags: [],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1123"
+    },
+    {
+      title: "The Rings of Power Season 2: Bringing life to Middle Earth Creatures",
+      startTime: "12:45",
+      endTime: "13:45",
+      time: "12:45-13:45",
+      date: "2025-10-16",
+      location: "BINARIO3",
+      speakers: [
+        "Ara Khanikian"
+      ],
+      type: "talk",
+      categories: [
+        "art"
+      ],
+      tags: [],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1118"
+    },
+    {
+      title: "The Purposes of Creativity &amp; Art",
+      startTime: "14:00",
+      endTime: "14:30",
+      time: "14:00-14:30",
+      date: "2025-10-16",
+      location: "FUCINE",
+      speakers: [
+        "Matthias Buehler"
+      ],
+      type: "keynote",
+      categories: [
+        "art"
+      ],
+      tags: [
+        "keynote"
+      ],
+      description: "keynote at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1153"
+    },
+    {
+      title: "Once Upon a Toon: Folktales and History with an Animated Twist!",
+      startTime: "14:00",
+      endTime: "15:00",
+      time: "14:00-15:00",
+      date: "2025-10-16",
+      location: "BINARIO3",
+      speakers: [
+        "Munjal B. Shroff"
+      ],
+      type: "talk",
+      categories: [
+        "animation"
+      ],
+      tags: [
+        "animation",
+        "history",
+        "cinema"
+      ],
+      description: "talk exploring the evolution of visual effects in cinema",
+      url: "https://www.viewconference.it/article/1099"
+    },
+    {
+      title: "What Remains in the Ruins: The VFX of ‘The Last of Us - Season 2’",
+      startTime: "14:00",
+      endTime: "15:00",
+      time: "14:00-15:00",
+      date: "2025-10-16",
+      location: "TECA B",
+      speakers: [
+        "Melaina Mace",
+        "Roberto Rodricks"
+      ],
+      type: "talk",
+      categories: [
+        "vfx"
+      ],
+      tags: [
+        "vfx",
+        "ai",
+        "machine learning"
+      ],
+      description: "talk exploring artificial intelligence applications in creative workflows",
+      url: "https://www.viewconference.it/article/1138"
+    },
+    {
+      title: "The Future of Content Security: Protecting Creative IP and Stopping Hackers with Superfile",
+      startTime: "14:45",
+      endTime: "15:45",
+      time: "14:45-15:45",
+      date: "2025-10-16",
+      location: "FUCINE",
+      speakers: [
+        "Shane Valdez",
+        "Jake Maymudes"
+      ],
+      type: "talk",
+      categories: [
+        "general"
+      ],
+      tags: [],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1145"
+    },
+    {
+      title: "GAME-ER Clusters in Action: Co-Op Mode as the New Industry Standard",
+      startTime: "15:15",
+      endTime: "16:15",
+      time: "15:15-16:15",
+      date: "2025-10-16",
+      location: "BINARIO3",
+      speakers: [
+        "Valerio Di Donato",
+        "Darshana Jayemanne",
+        "LuíS LeçA",
+        "Matteo Sapio",
+        "Matteo Pessione"
+      ],
+      type: "panel",
+      categories: [
+        "gaming"
+      ],
+      tags: [
+        "panel"
+      ],
+      description: "panel at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1202"
+    },
+    {
+      title: "Embodiment of Motion: Loïe Fuller &amp; Aesthetics of Performance in Emerging Tech",
+      startTime: "15:15",
+      endTime: "16:15",
+      time: "15:15-16:15",
+      date: "2025-10-16",
+      location: "TECA B",
+      speakers: [
+        "Rochele Gloor"
+      ],
+      type: "talk",
+      categories: [
+        "general"
+      ],
+      tags: [],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1101"
+    },
+    {
+      title: "The VFX of the The Penguin (HBO)",
+      startTime: "16:00",
+      endTime: "17:00",
+      time: "16:00-17:00",
+      date: "2025-10-16",
+      location: "FUCINE",
+      speakers: [
+        "Johnny Han",
+        "Goran Pavles",
+        "Eugene Bondar"
+      ],
+      type: "talk",
+      categories: [
+        "vfx"
+      ],
+      tags: [
+        "vfx"
+      ],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1156"
+    },
+    {
+      title: "Women in Animation: VFX and Live Action",
+      startTime: "16:30",
+      endTime: "17:30",
+      time: "16:30-17:30",
+      date: "2025-10-16",
+      location: "BINARIO3",
+      speakers: [
+        "Domee Shi",
+        "Claudia Marvisi",
+        "Delphine Coudray",
+        "Madeline Sharafian",
+        "Janet Lewin"
+      ],
+      type: "panel",
+      categories: [
+        "vfx"
+      ],
+      tags: [
+        "panel",
+        "vfx"
+      ],
+      description: "panel at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1201"
+    },
+    {
+      title: "\"Sinners\" VFX: Photochemical Soul, Digital Craft: Twinned &amp; Twisted Southern Blues\n                  Gangster Western",
+      startTime: "17:15",
+      endTime: "18:15",
+      time: "17:15-18:15",
+      date: "2025-10-16",
+      location: "FUCINE",
+      speakers: [
+        "Michael Ralla",
+        "Guido Wolter",
+        "Espen Nordahl",
+        "Antoine Moulineau"
+      ],
+      type: "talk",
+      categories: [
+        "vfx"
+      ],
+      tags: [
+        "vfx"
+      ],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1092"
+    },
+    {
+      title: "The Co-Pilots of Creativity: From Concept to Screen, Unlocking Potential Through AI\n                  &amp; Technology",
+      startTime: "17:45",
+      endTime: "19:15",
+      time: "17:45-19:15",
+      date: "2025-10-16",
+      location: "BINARIO3",
+      speakers: [
+        "Setareh Samandari",
+        "Francesco Casetti",
+        "Habib Zargarpour"
+      ],
+      type: "masterclass",
+      categories: [
+        "technology"
+      ],
+      tags: [
+        "masterclass",
+        "technology",
+        "ai",
+        "machine learning"
+      ],
+      description: "Masterclass masterclass exploring artificial intelligence applications in creative workflows",
+      url: "https://www.viewconference.it/article/1105"
+    },
+    {
+      title: "The Future of Filmmaking (2025)",
+      startTime: "18:30",
+      endTime: "19:30",
+      time: "18:30-19:30",
+      date: "2025-10-16",
+      location: "FUCINE",
+      speakers: [
+        "Ramsey Naito",
+        "Doug Chiang",
+        "Kevin Baillie",
+        "Jeff Dillinger",
+        "Janet Lewin",
+        "Fiona Walkinshaw",
+        "Laurens Ehrmann",
+        "Ian Failes"
+      ],
+      type: "panel",
+      categories: [
+        "technology"
+      ],
+      tags: [
+        "panel",
+        "technology"
+      ],
+      description: "panel at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1186"
+    },
+    {
+      title: "How to Train Your Dragon",
+      startTime: "09:00",
+      endTime: "10:00",
+      time: "09:00-10:00",
+      date: "2025-10-17",
+      location: "FUCINE",
+      speakers: [
+        "Christian MäNz",
+        "Dean Deblois",
+        "Glen Mcintosh"
+      ],
+      type: "talk",
+      categories: [
+        "technology"
+      ],
+      tags: [
+        "technology",
+        "ai",
+        "machine learning"
+      ],
+      description: "talk exploring artificial intelligence applications in creative workflows",
+      url: "https://www.viewconference.it/article/1095"
+    },
+    {
+      title: "Studio Ready: Tips and Q&amp;A on Getting Hired in Animation &amp; VFX!",
+      startTime: "09:00",
+      endTime: "10:00",
+      time: "09:00-10:00",
+      date: "2025-10-17",
+      location: "MEZZANINO",
+      speakers: [
+        "Siva Kumar Kasetty"
+      ],
+      type: "ama",
+      categories: [
+        "vfx"
+      ],
+      tags: [
+        "ama",
+        "vfx"
+      ],
+      description: "ama at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1195"
+    },
+    {
+      title: "The Cat in the Hat (2026) (Premiere Talk)",
+      startTime: "10:15",
+      endTime: "11:15",
+      time: "10:15-11:15",
+      date: "2025-10-17",
+      location: "FUCINE",
+      speakers: [
+        "Alessandro Carloni"
+      ],
+      type: "talk",
+      categories: [
+        "general"
+      ],
+      tags: [],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1114"
+    },
+    {
+      title: "Immersive Entertainment: Building Cinematic Stories on Vision Pro",
+      startTime: "10:15",
+      endTime: "11:15",
+      time: "10:15-11:15",
+      date: "2025-10-17",
+      location: "BINARIO3",
+      speakers: [
+        "Victor Agulhon"
+      ],
+      type: "talk",
+      categories: [
+        "technology"
+      ],
+      tags: [
+        "technology",
+        "cinema",
+        "ai",
+        "machine learning"
+      ],
+      description: "talk exploring artificial intelligence applications in creative workflows",
+      url: "https://www.viewconference.it/article/1140"
+    },
+    {
+      title: "How to Become the 3D Artist of Tomorrow",
+      startTime: "10:15",
+      endTime: "11:15",
+      time: "10:15-11:15",
+      date: "2025-10-17",
+      location: "MEZZANINO",
+      speakers: [
+        "Gennaro Esposito"
+      ],
+      type: "talk",
+      categories: [
+        "art"
+      ],
+      tags: [],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1183"
+    },
+    {
+      title: "Jurassic World: Rebirth",
+      startTime: "11:30",
+      endTime: "12:30",
+      time: "11:30-12:30",
+      date: "2025-10-17",
+      location: "FUCINE",
+      speakers: [
+        "David Vickery"
+      ],
+      type: "talk",
+      categories: [
+        "general"
+      ],
+      tags: [],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1098"
+    },
+    {
+      title: "Directing GenAI Tools for Real World Productions: Fashion Industry Video Case Study",
+      startTime: "11:30",
+      endTime: "12:30",
+      time: "11:30-12:30",
+      date: "2025-10-17",
+      location: "BINARIO3",
+      speakers: [
+        "Srikanth Srinivasan"
+      ],
+      type: "talk",
+      categories: [
+        "technology"
+      ],
+      tags: [
+        "technology",
+        "ai",
+        "machine learning"
+      ],
+      description: "talk exploring artificial intelligence applications in creative workflows",
+      url: "https://www.viewconference.it/article/1116"
+    },
+    {
+      title: "NORA: the First Italian V-Idol and Digital Pop Star",
+      startTime: "11:30",
+      endTime: "12:30",
+      time: "11:30-12:30",
+      date: "2025-10-17",
+      location: "MEZZANINO",
+      speakers: [
+        "Serena Tripepi",
+        "Max Carrier Ragazzi"
+      ],
+      type: "talk",
+      categories: [
+        "general"
+      ],
+      tags: [],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1206"
+    },
+    {
+      title: "Interactive Samurai Cinema in Ghost of Yotei",
+      startTime: "12:45",
+      endTime: "13:45",
+      time: "12:45-13:45",
+      date: "2025-10-17",
+      location: "FUCINE",
+      speakers: [
+        "Nathan Fox"
+      ],
+      type: "talk",
+      categories: [
+        "technology"
+      ],
+      tags: [
+        "technology",
+        "cinema",
+        "ai",
+        "machine learning"
+      ],
+      description: "talk exploring artificial intelligence applications in creative workflows",
+      url: "https://www.viewconference.it/article/1097"
+    },
+    {
+      title: "Creator's Tools: Innovation at Eyeline",
+      startTime: "12:45",
+      endTime: "13:45",
+      time: "12:45-13:45",
+      date: "2025-10-17",
+      location: "BINARIO3",
+      speakers: [
+        "Kevin Baillie"
+      ],
+      type: "talk",
+      categories: [
+        "technology"
+      ],
+      tags: [
+        "technology"
+      ],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1170"
+    },
+    {
+      title: "From Script to Screen",
+      startTime: "12:45",
+      endTime: "13:45",
+      time: "12:45-13:45",
+      date: "2025-10-17",
+      location: "MEZZANINO",
+      speakers: [
+        "Heike Kluger",
+        "Tara Demarco",
+        "Christina Caspers-Roemer"
+      ],
+      type: "panel",
+      categories: [
+        "general"
+      ],
+      tags: [
+        "panel"
+      ],
+      description: "panel at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1136"
+    },
+    {
+      title: "My 50 Years with ILM",
+      startTime: "14:00",
+      endTime: "15:00",
+      time: "14:00-15:00",
+      date: "2025-10-17",
+      location: "FUCINE",
+      speakers: [
+        "Hal Hickel"
+      ],
+      type: "talk",
+      categories: [
+        "general"
+      ],
+      tags: [],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1096"
+    },
+    {
+      title: "The Sandman: Crafting the Dreaming",
+      startTime: "14:00",
+      endTime: "15:00",
+      time: "14:00-15:00",
+      date: "2025-10-17",
+      location: "BINARIO3",
+      speakers: [
+        "Martin Pelletier"
+      ],
+      type: "talk",
+      categories: [
+        "art"
+      ],
+      tags: [],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1117"
+    },
+    {
+      title: "Bridging the Gap in VFX: Collaboration &amp; Innovation (In Partnership with VES)",
+      startTime: "14:00",
+      endTime: "15:00",
+      time: "14:00-15:00",
+      date: "2025-10-17",
+      location: "MEZZANINO",
+      speakers: [
+        "Kevin Baillie",
+        "Christine Resch",
+        "Michael Ralla",
+        "Christina Caspers-Roemer"
+      ],
+      type: "panel",
+      categories: [
+        "vfx"
+      ],
+      tags: [
+        "panel",
+        "vfx"
+      ],
+      description: "panel at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1199"
+    },
+    {
+      title: "Superman: Building Superdog, Crafting Crystalline Fortress of Solitude, Pioneering\n                  4D Gaussian Splat",
+      startTime: "15:15",
+      endTime: "16:15",
+      time: "15:15-16:15",
+      date: "2025-10-17",
+      location: "FUCINE",
+      speakers: [
+        "StéPhane Nazé"
+      ],
+      type: "talk",
+      categories: [
+        "general"
+      ],
+      tags: [
+        "gaussian splatting",
+        "advanced",
+        "environment"
+      ],
+      description: "talk on using Gaussian Splatting techniques in production environments",
+      url: "https://www.viewconference.it/article/1159"
+    },
+    {
+      title: "The Filmmaker and the Machine: AI, Cinema, and Real-Time 3D Worlds",
+      startTime: "15:15",
+      endTime: "16:15",
+      time: "15:15-16:15",
+      date: "2025-10-17",
+      location: "BINARIO3",
+      speakers: [
+        "Dimitri Vallein"
+      ],
+      type: "talk",
+      categories: [
+        "technology"
+      ],
+      tags: [
+        "technology",
+        "cinema",
+        "ai",
+        "machine learning"
+      ],
+      description: "talk exploring artificial intelligence applications in creative workflows",
+      url: "https://www.viewconference.it/article/1125"
+    },
+    {
+      title: "From Slot Machine to Meaningful Creative Control",
+      startTime: "15:15",
+      endTime: "16:15",
+      time: "15:15-16:15",
+      date: "2025-10-17",
+      location: "MEZZANINO",
+      speakers: [
+        "Martin Nebelong"
+      ],
+      type: "talk",
+      categories: [
+        "art"
+      ],
+      tags: [],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1083"
+    },
+    {
+      title: "Making It (Look) Big in Movies",
+      startTime: "16:30",
+      endTime: "17:30",
+      time: "16:30-17:30",
+      date: "2025-10-17",
+      location: "FUCINE",
+      speakers: [
+        "Ian Hunter"
+      ],
+      type: "talk",
+      categories: [
+        "general"
+      ],
+      tags: [],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1119"
+    },
+    {
+      title: "A Life in Film Design",
+      startTime: "17:45",
+      endTime: "18:45",
+      time: "17:45-18:45",
+      date: "2025-10-17",
+      location: "FUCINE",
+      speakers: [
+        "Doug Chiang",
+        "Alexandre Poncet"
+      ],
+      type: "keynote",
+      categories: [
+        "art"
+      ],
+      tags: [
+        "keynote"
+      ],
+      description: "keynote at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1130"
+    }
+  ];
 
 class ConferenceSessionsFilter {
   constructor() {
@@ -1787,10 +2653,12 @@ class ConferenceSessionsFilter {
     this.clearFiltersBtn.addEventListener("click", () =>
       this.clearAllFilters()
     );
-    
+
     // Add event listeners for the new tabs
     this.allSessionsTab.addEventListener("click", () => this.showAllSessions());
-    this.savedSessionsTab.addEventListener("click", () => this.showSavedSessions());
+    this.savedSessionsTab.addEventListener("click", () =>
+      this.showSavedSessions()
+    );
   }
 
   debounce(func, wait) {
@@ -1950,14 +2818,24 @@ class ConferenceSessionsFilter {
 
     const sessionActionsHtml = !sessionStatus.isPast
       ? `<div class="session-actions">
-                    <button class="save-btn ${this.isSessionSaved(session.id) ? 'saved' : ''}" onclick="toggleSaveSession(${session.id})">
-                        ${this.isSessionSaved(session.id) ? '★ Saved' : '☆ Save to Schedule'}
+                    <button class="save-btn ${
+                      this.isSessionSaved(session.id) ? "saved" : ""
+                    }" onclick="toggleSaveSession(${session.id})">
+                        ${
+                          this.isSessionSaved(session.id)
+                            ? "★ Saved"
+                            : "☆ Save to Schedule"
+                        }
                     </button>
                     <div class="dropdown">
                         <button class="calendar-btn">Add to Calendar</button>
                         <div class="dropdown-content">
-                            <a href="#" onclick="event.preventDefault(); addSessionToIcal(${session.id})">iCal</a>
-                            <a href="#" onclick="event.preventDefault(); addSessionToGoogleCalendar(${session.id})">Google</a>
+                            <a href="#" onclick="event.preventDefault(); addSessionToIcal(${
+                              session.id
+                            })">iCal</a>
+                            <a href="#" onclick="event.preventDefault(); addSessionToGoogleCalendar(${
+                              session.id
+                            })">Google</a>
                         </div>
                     </div>
                 </div>`
@@ -2127,76 +3005,76 @@ class ConferenceSessionsFilter {
     const total = this.allSessions.length;
     this.resultsCount.textContent = `${count} of ${total} sessions`;
   }
-  
+
   // Get saved sessions from localStorage
   getSavedSessions() {
-    const saved = localStorage.getItem('savedSessions');
+    const saved = localStorage.getItem("savedSessions");
     return saved ? JSON.parse(saved) : [];
   }
-  
+
   // Save sessions to localStorage
   saveSession(sessionId) {
     let savedSessions = this.getSavedSessions();
     if (!savedSessions.includes(sessionId)) {
       savedSessions.push(sessionId);
-      localStorage.setItem('savedSessions', JSON.stringify(savedSessions));
+      localStorage.setItem("savedSessions", JSON.stringify(savedSessions));
       this.updateTabIndicators();
       return true;
     }
     return false;
   }
-  
+
   // Remove session from saved
   removeSavedSession(sessionId) {
     let savedSessions = this.getSavedSessions();
-    savedSessions = savedSessions.filter(id => id !== sessionId);
-    localStorage.setItem('savedSessions', JSON.stringify(savedSessions));
+    savedSessions = savedSessions.filter((id) => id !== sessionId);
+    localStorage.setItem("savedSessions", JSON.stringify(savedSessions));
     this.updateTabIndicators();
     return true;
   }
-  
+
   // Check if a session is saved
   isSessionSaved(sessionId) {
     const savedSessions = this.getSavedSessions();
     return savedSessions.includes(sessionId);
   }
-  
+
   // Show all sessions
   showAllSessions() {
-    this.allSessionsTab.classList.add('active');
-    this.savedSessionsTab.classList.remove('active');
+    this.allSessionsTab.classList.add("active");
+    this.savedSessionsTab.classList.remove("active");
     this.applyFilters(); // Re-apply current filters to show all sessions
   }
-  
- // Show only saved sessions
+
+  // Show only saved sessions
   showSavedSessions() {
-    this.allSessionsTab.classList.remove('active');
-    this.savedSessionsTab.classList.add('active');
-    
+    this.allSessionsTab.classList.remove("active");
+    this.savedSessionsTab.classList.add("active");
+
     // Get saved session IDs
     const savedSessionIds = this.getSavedSessions();
-    
+
     // Filter sessions to show only saved ones
-    this.filteredSessions = this.allSessions.filter(session =>
+    this.filteredSessions = this.allSessions.filter((session) =>
       savedSessionIds.includes(session.id)
     );
-    
+
     // Sort the saved sessions by date and time
     this.sortSessionsByDateTime();
-    
+
     this.renderSessions();
     this.updateResultsCount();
   }
-  
- // Update tab indicators (show count of saved sessions)
+
+  // Update tab indicators (show count of saved sessions)
   updateTabIndicators() {
     const savedCount = this.getSavedSessions().length;
     if (savedCount > 0) {
       this.savedSessionsTab.innerHTML = `Saved Sessions <span class="saved-count">${savedCount}</span>`;
     } else {
-      this.savedSessionsTab.textContent = 'Saved Sessions';
+      this.savedSessionsTab.textContent = "Saved Sessions";
     }
- }
+  }
 }
 
 // Initialize the application when DOM is loaded
@@ -2287,7 +3165,7 @@ function addSessionToGoogleCalendar(sessionId) {
 }
 
 function shareSession(sessionId) {
- const session = sessionsData.find((s) => s.id === sessionId);
+  const session = sessionsData.find((s) => s.id === sessionId);
   if (!session) return;
 
   if (navigator.share) {
@@ -2309,29 +3187,32 @@ function shareSession(sessionId) {
 function toggleSaveSession(sessionId) {
   const app = window.conferenceApp;
   if (!app) {
-    console.error('Conference app instance not found');
+    console.error("Conference app instance not found");
     return;
   }
-  
-  const saveBtn = event.target.classList.contains('save-btn') ?
-    event.target : event.target.closest('.save-btn');
-  
+
+  const saveBtn = event.target.classList.contains("save-btn")
+    ? event.target
+    : event.target.closest(".save-btn");
+
   if (!saveBtn) return;
-  
+
   if (app.isSessionSaved(sessionId)) {
     // Remove from saved
     app.removeSavedSession(sessionId);
-    saveBtn.textContent = '☆ Save to Schedule';
-    saveBtn.classList.remove('saved');
-    
+    saveBtn.textContent = "☆ Save to Schedule";
+    saveBtn.classList.remove("saved");
+
     // If we're currently viewing saved sessions, update the view
-    if (document.getElementById('saved-sessions-tab').classList.contains('active')) {
+    if (
+      document.getElementById("saved-sessions-tab").classList.contains("active")
+    ) {
       app.showSavedSessions();
     }
   } else {
     // Add to saved
     app.saveSession(sessionId);
-    saveBtn.textContent = '★ Saved';
-    saveBtn.classList.add('saved');
+    saveBtn.textContent = "★ Saved";
+    saveBtn.classList.add("saved");
   }
 }
