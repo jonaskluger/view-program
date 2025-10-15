@@ -2168,14 +2168,6 @@ class ConferenceSessionsFilter {
 
                 ${speakersHtml}
 
-                ${
-                  !sessionStatus.isPast
-                    ? `<div class="session-description">
-                    ${session.description}
-                </div>`
-                    : ""
-                }
-
                 ${tagsHtml}
 
                 ${sessionActionsHtml}
