@@ -1014,7 +1014,8 @@ const sessionsData = [
       date: "2025-10-14",
       location: "BINARIO3",
       speakers: [
-        "Dan Laustsen"
+        "Dan Laustsen",
+        "Carolyn Giardina"
       ],
       type: "talk",
       categories: [
@@ -1649,24 +1650,6 @@ const sessionsData = [
       url: "https://www.viewconference.it/article/1133"
     },
     {
-      title: "From Location to Virtual Set: From Call Time to Render Time",
-      startTime: "15:15",
-      endTime: "16:15",
-      time: "15:15-16:15",
-      date: "2025-10-15",
-      location: "BINARIO3",
-      speakers: [
-        "Andreas Maaninka"
-      ],
-      type: "talk",
-      categories: [
-        "general"
-      ],
-      tags: [],
-      description: "talk at VIEW Conference 2025",
-      url: "https://www.viewconference.it/article/1185"
-    },
-    {
       title: "Pixels, Pressure and People: Creative Leadership in VFX",
       startTime: "15:15",
       endTime: "16:15",
@@ -2036,23 +2019,26 @@ const sessionsData = [
       url: "https://www.viewconference.it/article/1138"
     },
     {
-      title: "The Future of Content Security: Protecting Creative IP and Stopping Hackers with Superfile",
+      title: "Superman: Building Superdog, Crafting Crystalline Fortress of Solitude, Pioneering\n                  4D Gaussian Splat",
       startTime: "14:45",
       endTime: "15:45",
       time: "14:45-15:45",
       date: "2025-10-16",
       location: "FUCINE",
       speakers: [
-        "Shane Valdez",
-        "Jake Maymudes"
+        "StéPhane Nazé"
       ],
       type: "talk",
       categories: [
         "general"
       ],
-      tags: [],
-      description: "talk at VIEW Conference 2025",
-      url: "https://www.viewconference.it/article/1145"
+      tags: [
+        "gaussian splatting",
+        "advanced",
+        "environment"
+      ],
+      description: "talk on using Gaussian Splatting techniques in production environments",
+      url: "https://www.viewconference.it/article/1159"
     },
     {
       title: "GAME-ER Clusters in Action: Co-Op Mode as the New Industry Standard",
@@ -2128,9 +2114,11 @@ const sessionsData = [
       speakers: [
         "Domee Shi",
         "Claudia Marvisi",
-        "Delphine Coudray",
         "Madeline Sharafian",
-        "Janet Lewin"
+        "Janet Lewin",
+        "Janet Lewin",
+        "Fiona Walkinshaw",
+        "Carolyn Giardina"
       ],
       type: "panel",
       categories: [
@@ -2508,26 +2496,22 @@ const sessionsData = [
       url: "https://www.viewconference.it/article/1199"
     },
     {
-      title: "Superman: Building Superdog, Crafting Crystalline Fortress of Solitude, Pioneering\n                  4D Gaussian Splat",
+      title: "From Slot Machine to Meaningful Creative Control",
       startTime: "15:15",
       endTime: "16:15",
       time: "15:15-16:15",
       date: "2025-10-17",
       location: "FUCINE",
       speakers: [
-        "StéPhane Nazé"
+        "Martin Nebelong"
       ],
       type: "talk",
       categories: [
-        "general"
+        "art"
       ],
-      tags: [
-        "gaussian splatting",
-        "advanced",
-        "environment"
-      ],
-      description: "talk on using Gaussian Splatting techniques in production environments",
-      url: "https://www.viewconference.it/article/1159"
+      tags: [],
+      description: "talk at VIEW Conference 2025",
+      url: "https://www.viewconference.it/article/1083"
     },
     {
       title: "The Filmmaker and the Machine: AI, Cinema, and Real-Time 3D Worlds",
@@ -2553,22 +2537,23 @@ const sessionsData = [
       url: "https://www.viewconference.it/article/1125"
     },
     {
-      title: "From Slot Machine to Meaningful Creative Control",
+      title: "The Future of Content Security: Protecting Creative IP and Stopping Hackers with Superfile",
       startTime: "15:15",
       endTime: "16:15",
       time: "15:15-16:15",
       date: "2025-10-17",
       location: "MEZZANINO",
       speakers: [
-        "Martin Nebelong"
+        "Shane Valdez",
+        "Jake Maymudes"
       ],
       type: "talk",
       categories: [
-        "art"
+        "general"
       ],
       tags: [],
       description: "talk at VIEW Conference 2025",
-      url: "https://www.viewconference.it/article/1083"
+      url: "https://www.viewconference.it/article/1145"
     },
     {
       title: "Making It (Look) Big in Movies",
