@@ -2116,7 +2116,6 @@ const sessionsData = [
         "Claudia Marvisi",
         "Madeline Sharafian",
         "Janet Lewin",
-        "Janet Lewin",
         "Fiona Walkinshaw",
         "Carolyn Giardina"
       ],
